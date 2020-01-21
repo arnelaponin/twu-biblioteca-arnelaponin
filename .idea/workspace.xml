@@ -7,6 +7,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1Whm4yNkBwIkdjrofmYJIBD3xpT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -19,8 +26,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="JUnit.ExampleTest">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.twu.biblioteca" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.LibraryTest.testLibraryHasOneBook">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -28,7 +41,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -37,19 +50,37 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.ExampleTest" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTest.testLibraryHasOneBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryTest" />
+      <option name="METHOD_NAME" value="testLibraryHasOneBook" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.BibliotecaApp" />
-      <item itemvalue="JUnit.ExampleTest" />
+      <item itemvalue="JUnit.LibraryTest" />
+      <item itemvalue="JUnit.LibraryTest.testLibraryHasOneBook" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExampleTest" />
+        <item itemvalue="JUnit.LibraryTest.testLibraryHasOneBook" />
+        <item itemvalue="JUnit.LibraryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -75,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579610013850</updated>
-      <workItem from="1579610016696" duration="732000" />
+      <workItem from="1579610016696" duration="2008000" />
     </task>
     <servers />
   </component>
@@ -95,22 +126,26 @@
       <screen x="0" y="23" width="1680" height="961" />
     </state>
     <state x="672" y="401" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.961@0.23.1680.961" timestamp="1579610057138" />
-    <state width="1358" height="245" key="GridCell.Tab.0.bottom" timestamp="1579610145555">
+    <state width="1358" height="245" key="GridCell.Tab.0.bottom" timestamp="1579612402413">
       <screen x="0" y="23" width="1680" height="961" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1579610145555" />
-    <state width="1358" height="245" key="GridCell.Tab.0.center" timestamp="1579610145555">
+    <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1579612402413" />
+    <state width="1358" height="245" key="GridCell.Tab.0.center" timestamp="1579612402413">
       <screen x="0" y="23" width="1680" height="961" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1579610145555" />
-    <state width="1358" height="245" key="GridCell.Tab.0.left" timestamp="1579610145554">
+    <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1579612402413" />
+    <state width="1358" height="245" key="GridCell.Tab.0.left" timestamp="1579612402412">
       <screen x="0" y="23" width="1680" height="961" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1579610145554" />
-    <state width="1358" height="245" key="GridCell.Tab.0.right" timestamp="1579610145555">
+    <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1579612402412" />
+    <state width="1358" height="245" key="GridCell.Tab.0.right" timestamp="1579612402413">
       <screen x="0" y="23" width="1680" height="961" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1579610145555" />
+    <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1579612402413" />
+    <state x="341" y="142" key="SettingsEditor" timestamp="1579612330335">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state x="341" y="142" key="SettingsEditor/0.23.1680.961@0.23.1680.961" timestamp="1579612330335" />
     <state x="488" y="338" key="com.intellij.ide.util.TipDialog" timestamp="1579610017985">
       <screen x="0" y="23" width="1680" height="961" />
     </state>
