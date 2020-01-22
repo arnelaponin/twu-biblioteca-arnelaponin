@@ -6,11 +6,13 @@ public class Book {
         this.name = name;
         this.author = author;
         this.year = year;
+        this.status = true;
     }
 
     private String name;
     private String author;
     private String year;
+    private boolean status;
 
     public String getName() {
         return name;
@@ -31,5 +33,13 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", year='" + year + '\'' +
                 '}';
+    }
+
+    public boolean isAvailable() {
+        return status;
+    }
+
+    public void checkOut() {
+        status = false;
     }
 }

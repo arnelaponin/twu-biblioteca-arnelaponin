@@ -6,8 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class LibraryTest {
 
@@ -35,9 +34,27 @@ public class LibraryTest {
     @Test
     public void testLibraryHasOneBookWithNameAuthorYear() {
         Library lib = new Library();
-        Book book = (Book) lib.getBooks().get(0);
+        Book book = lib.getBooks().get(0);
         assertEquals("Unquiet", book.getName());
         assertEquals("Linn Ullmann", book.getAuthor());
         assertEquals("2018", book.getYear());
     }
+
+    @Test
+    public void testBookAvailability() {
+        Library lib = new Library();
+        List<Book> books = lib.getBooks();
+        Book book = books.get(0);
+        assertTrue(book.isAvailable());
+    }
+
+    @Test
+    public void testBookCheckOut() {
+        Library lib = new Library();
+        List<Book> books = lib.getBooks();
+        Book book = books.get(0);
+        book.checkOut();
+        assertFalse(book.isAvailable());
+    }
+
 }
