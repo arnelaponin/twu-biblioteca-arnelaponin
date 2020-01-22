@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Library {
 
@@ -10,7 +11,9 @@ public class Library {
     List<Book> books = Arrays.asList(book1, book2);
 
     public List<Book> getBooks() {
-        return books;
+        return books.stream()
+                .filter(Book::isAvailable)
+                .collect(Collectors.toList());
     }
 
     public int getBookCount() {

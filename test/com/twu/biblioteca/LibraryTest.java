@@ -40,6 +40,15 @@ public class LibraryTest {
         assertEquals("2018", book.getYear());
     }
 
-
+    @Test
+    public void testBookListWithCheckOutRemoved() {
+        Library lib = new Library();
+        List<Book> books = lib.getBooks();
+        int originalBookCount = books.size();
+        Book book = books.get(0);
+        book.checkOut();
+        int updatedBookCount = lib.getBooks().size();
+        assertTrue(originalBookCount > updatedBookCount);
+    }
 
 }
