@@ -23,4 +23,13 @@ public class Book {
     public String getYear() {
         return year;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", year='" + year + '\'' +
+                '}';
+    }
 }
