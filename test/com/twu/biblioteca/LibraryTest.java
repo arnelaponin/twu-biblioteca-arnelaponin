@@ -40,21 +40,6 @@ public class LibraryTest {
         assertEquals("2018", book.getYear());
     }
 
-    @Test
-    public void testBookAvailability() {
-        Library lib = new Library();
-        List<Book> books = lib.getBooks();
-        Book book = books.get(0);
-        assertTrue(book.isAvailable());
-    }
 
-    @Test
-    public void testBookCheckOut() {
-        Library lib = new Library();
-        List<Book> books = lib.getBooks();
-        Book book = books.get(0);
-        book.checkOut();
-        assertFalse(book.isAvailable());
-    }
 
 }
