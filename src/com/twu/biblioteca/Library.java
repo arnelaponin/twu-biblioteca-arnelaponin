@@ -5,9 +5,11 @@ import java.util.List;
 
 public class Library {
 
-    List books = Arrays.asList("Unquiet", "The Value of Everything");
+    Book book1 = new Book("Unquiet", "Linn Ullmann", "2018");
+    Book book2 = new Book("The Value of Everything", "Mariana Mazzucato", "2018");
+    List<Book> books = Arrays.asList(book1, book2);
 
-    public List getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 

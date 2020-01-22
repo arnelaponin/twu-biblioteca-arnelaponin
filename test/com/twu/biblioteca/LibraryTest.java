@@ -21,14 +21,23 @@ public class LibraryTest {
     @Test
     public void testLibraryHasOneBookWithName() {
         Library lib = new Library();
-        assertEquals("Unquiet", lib.getBooks().get(0));
+        assertEquals("Unquiet", lib.getBooks().get(0).getName());
     }
 
     @Test
     public void testLibraryHasMultipleBooksWithName() {
         Library lib = new Library();
-        List books = lib.getBooks();
-        List expectedBooks = Arrays.asList("Unquiet", "The Value of Everything");
-        assertEquals(books, expectedBooks);
+        List<Book> books = lib.getBooks();
+        assertEquals("Unquiet", books.get(0).getName());
+        assertEquals("The Value of Everything", books.get(1).getName());
+    }
+
+    @Test
+    public void testLibraryHasOneBookWithNameAuthorYear() {
+        Library lib = new Library();
+        Book book = (Book) lib.getBooks().get(0);
+        assertEquals("Unquiet", book.getName());
+        assertEquals("Linn Ullmann", book.getAuthor());
+        assertEquals("2018", book.getYear());
     }
 }
