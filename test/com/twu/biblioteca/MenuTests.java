@@ -9,11 +9,22 @@ import static org.junit.Assert.assertEquals;
 public class MenuTests {
 
     @Test
-    public void testLibraryHasOneBook() {
+    public void testMenuHasOneOption() {
         Library lib = new Library();
-        Menu menu = new Menu();
-        List<String> options = menu.getOptions();
-        assertEquals("List of books", options.get(0));
+        Menu menu = new Menu(lib);
+        List<Option> options = menu.getOptions();
+        assertEquals("List of books", options.get(0).getName());
+    }
 
+    @Test
+    public void testSelectingBookOptionReturnsListOfBooks() {
+        Library lib = new Library();
+        Menu menu = new Menu(lib);
+        List<Option> options = menu.getOptions();
+        List<Book> books = options.get(0).execute();
+        Book book = (Book) books.get(0);
+        assertEquals("Unquiet", book.getName());
+        assertEquals("Linn Ullmann", book.getAuthor());
+        assertEquals("2018", book.getYear());
     }
 }

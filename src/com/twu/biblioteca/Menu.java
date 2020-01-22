@@ -5,9 +5,14 @@ import java.util.List;
 
 public class Menu {
 
-    private List<String> options = Arrays.asList("List of books");
+    private List<Option> options = null;
 
-    public List<String> getOptions() {
+    public Menu(Library lib) {
+        this.options = Arrays.asList(new Option(lib, "List of books"));
+    }
+
+
+    public List<Option> getOptions() {
         return options;
     }
 }
