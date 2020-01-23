@@ -1,19 +1,13 @@
 package com.twu.biblioteca;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class Menu {
 
     private List<String> options;
-    private Library library;
 
-    public Menu(Library library, List<String> options) {
+    public Menu(List<String> options) {
         this.options = options;
-        this.library = library;
-    //Arrays.asList(new Option(lib, "List of books"), new Option(lib, "Quit"));
     }
 
 

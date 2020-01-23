@@ -14,10 +14,8 @@ public class MenuTests {
 
     @Test
     public void testMenuHasOneOption() {
-        Library mockedLibrary = mock(Library.class);
-
         List<String> options = Arrays.asList("List of books");
-        Menu menu = new Menu(mockedLibrary, options);
+        Menu menu = new Menu(options);
         assertEquals("List of books", menu.getOptions().get(0));
     }
 
@@ -25,7 +23,7 @@ public class MenuTests {
     public void testSelectingBookOptionReturnsListOfBooks() {
         Library lib = new Library();
         List<String> options = Arrays.asList("List of books");
-        Menu menu = new Menu(lib, options);
+        Menu menu = new Menu(options);
         List<Book> books = lib.getAvailableBooks();
         Book book = books.get(0);
         assertEquals("Unquiet", book.getName());
@@ -35,27 +33,24 @@ public class MenuTests {
 
     @Test
     public void testValidMenuOption() {
-        Library mockedLibrary = mock(Library.class);
         List<String> options = Arrays.asList("List of books", "Quit");
-        Menu menu = new Menu(mockedLibrary, options);
+        Menu menu = new Menu(options);
         boolean isValid = menu.isOptionSelectionValid(0);
         assertTrue(isValid);
     }
 
     @Test
     public void testInvalidMenuOption() {
-        Library mockedLibrary = mock(Library.class);
         List<String> options = Arrays.asList("List of books", "Quit");
-        Menu menu = new Menu(mockedLibrary, options);
+        Menu menu = new Menu(options);
         boolean isValid = menu.isOptionSelectionValid(2);
         assertFalse(isValid);
     }
 
     @Test
     public void testMenuHasQuittingOption() {
-        Library mockedLibrary = mock(Library.class);
         List<String> options = Arrays.asList("List of books", "Quit");
-        Menu menu = new Menu(mockedLibrary, options);
+        Menu menu = new Menu(options);
         assertEquals("Quit", menu.getOptions().get(1));
     }
 
@@ -65,9 +60,8 @@ public class MenuTests {
 
     @Test
     public void testQuittingTheApplication() {
-        Library mockedLibrary = mock(Library.class);
         List<String> options = Arrays.asList("Quit");
-        Menu menu = new Menu(mockedLibrary, options);
+        Menu menu = new Menu(options);
         exit.expectSystemExit();
         menu.quitApplication();
     }
