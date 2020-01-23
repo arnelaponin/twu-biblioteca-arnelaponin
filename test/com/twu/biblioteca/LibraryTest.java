@@ -50,4 +50,30 @@ public class LibraryTest {
         assertTrue(originalBookCount > updatedBookCount);
     }
 
+    @Test
+    public void testBookCheckOutByName() {
+        Library library = new Library();
+        String checkOutBookName = "Unquiet";
+        boolean checkOutStatus = library.checkOutByName(checkOutBookName);
+        assertTrue(checkOutStatus);
+        List<Book> books = library.getAvailableBooks();
+        boolean bookInCollection = false;
+        for (Book book: books) {
+            if (book.getName().equals(checkOutBookName)) {
+                bookInCollection = true;
+                break;
+            }
+        }
+        assertFalse(bookInCollection);
+    }
+
+    @Test
+    public void testBookCheckOutByIncorrectName() {
+        Library library = new Library();
+        String incorrectBookName = "Unquie";
+        boolean checkOutStatus = library.checkOutByName(incorrectBookName);
+        assertFalse(checkOutStatus);
+
+    }
+
 }

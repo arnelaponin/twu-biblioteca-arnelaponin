@@ -13,7 +13,7 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         Library library = new Library();
-        List<String> options = Arrays.asList("List of books", "Quit");
+        List<String> options = Arrays.asList("List of books", "Check out a book", "Quit");
         Menu menu = new Menu(library, options);
         System.out.println(menu);
         int optionNr = 0;
@@ -26,7 +26,9 @@ public class BibliotecaApp {
                 if (isValidResponse) {
                     if (optionNr == 0) {
                         System.out.println(library.getAvailableBooks());
-                    } else if (optionNr == 1) {
+                    }else if (optionNr == 1) {
+                        checkOutProcess(library);
+                    } else if (optionNr == 2) {
                         menu.quitApplication();
                     }
                 }
@@ -36,5 +38,18 @@ public class BibliotecaApp {
             }
         } while (!isValidResponse);
 
+    }
+
+    private static void checkOutProcess(Library library) throws IOException {
+        System.out.println(library.getAvailableBooks());
+        System.out.println("Write the name of the book:");
+        String bookName = reader.readLine();
+        boolean checkOutStatus = library.checkOutByName(bookName);
+        if (checkOutStatus) {
+            System.out.println("Thank you! Enjoy the book.");
+        } else {
+            System.out.println("Sorry, that book is not available");
+        }
+        System.out.println("Select an option:");
     }
 }

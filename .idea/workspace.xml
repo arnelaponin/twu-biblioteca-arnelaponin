@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="960d6684-feba-4081-80b3-5adadcbafe49" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/system_rules_1_19_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biblioteca.iml" beforeDir="false" afterPath="$PROJECT_DIR$/biblioteca.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Option.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,9 +144,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LibraryTest" />
         <item itemvalue="JUnit.MenuTests" />
         <item itemvalue="JUnit.MenuTests.testInvalidMenuOptions" />
-        <item itemvalue="JUnit.LibraryTest" />
         <item itemvalue="JUnit.BookTests" />
         <item itemvalue="JUnit.MenuTests.testSelectingBookOptionReturnsListOfBooks" />
       </list>
@@ -180,7 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579610013850</updated>
       <workItem from="1579610016696" duration="20805000" />
-      <workItem from="1579707012975" duration="14059000" />
+      <workItem from="1579707012975" duration="17563000" />
     </task>
     <servers />
   </component>
@@ -205,25 +200,25 @@
       <screen x="0" y="23" width="1680" height="961" />
     </state>
     <state x="672" y="401" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.961@0.23.1680.961" timestamp="1579610057138" />
-    <state width="1358" height="245" key="GridCell.Tab.0.bottom" timestamp="1579776407016">
+    <state width="1358" height="245" key="GridCell.Tab.0.bottom" timestamp="1579778826917">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1579776407016" />
+    <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1579778826917" />
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
-    <state width="1358" height="245" key="GridCell.Tab.0.center" timestamp="1579776407015">
+    <state width="1358" height="245" key="GridCell.Tab.0.center" timestamp="1579778826916">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1579776407015" />
+    <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1579778826916" />
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
-    <state width="1358" height="245" key="GridCell.Tab.0.left" timestamp="1579776407015">
+    <state width="1358" height="245" key="GridCell.Tab.0.left" timestamp="1579778826916">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1579776407015" />
+    <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1579778826916" />
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1579707255303" />
-    <state width="1358" height="245" key="GridCell.Tab.0.right" timestamp="1579776407016">
+    <state width="1358" height="245" key="GridCell.Tab.0.right" timestamp="1579778826916">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
-    <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1579776407016" />
+    <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1579778826916" />
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
     <state x="341" y="141" key="SettingsEditor" timestamp="1579772898271">
       <screen x="0" y="23" width="1680" height="952" />
@@ -235,9 +230,9 @@
     </state>
     <state x="488" y="338" key="com.intellij.ide.util.TipDialog/0.23.1680.961@0.23.1680.961" timestamp="1579610017985" />
     <state x="488" y="339" key="com.intellij.ide.util.TipDialog/0.23.1680.963@0.23.1680.963" timestamp="1579707014695" />
-    <state x="750" y="347" key="extract.method.dialog" timestamp="1579714613149">
+    <state x="750" y="347" key="extract.method.dialog" timestamp="1579779141788">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
-    <state x="750" y="347" key="extract.method.dialog/0.23.1680.952@0.23.1680.952" timestamp="1579714613149" />
+    <state x="750" y="347" key="extract.method.dialog/0.23.1680.952@0.23.1680.952" timestamp="1579779141788" />
   </component>
 </project>

@@ -19,4 +19,22 @@ public class Library {
     public int getBookCount() {
         return books.size();
     }
+
+    public boolean checkOutByName(String bookName) {
+        Book book = getBookByName(bookName);
+        if (book != null) {
+            book.checkOut();
+            return true;
+        }
+        return false;
+    }
+
+    private Book getBookByName(String bookName) {
+        for (Book book: books) {
+            if (book.getName().equals(bookName)) {
+                return book;
+            }
+        }
+        return null;
+    }
 }
