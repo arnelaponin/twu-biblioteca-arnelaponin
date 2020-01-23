@@ -42,4 +42,8 @@ public class Book {
     public void checkOut() {
         status = false;
     }
+
+    public void makeAvailable() {
+        status = true;
+    }
 }
