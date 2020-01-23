@@ -10,7 +10,7 @@ public class Menu {
     private List<Option> options = null;
 
     public Menu(Library lib) {
-        this.options = Arrays.asList(new Option(lib, "List of books"));
+        this.options = Arrays.asList(new Option(lib, "List of books"), new Option(lib, "Quit"));
     }
 
 

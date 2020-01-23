@@ -27,4 +27,12 @@ public class MenuTests {
         assertEquals("Linn Ullmann", book.getAuthor());
         assertEquals("2018", book.getYear());
     }
+
+    @Test
+    public void testMenuHasQuittingOption() {
+        Library lib = new Library();
+        Menu menu = new Menu(lib);
+        List<Option> options = menu.getOptions();
+        assertEquals("Quit", options.get(1).getName());
+    }
 }
