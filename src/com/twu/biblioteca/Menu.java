@@ -20,12 +20,31 @@ public class Menu {
 
     public void pickOption(BufferedReader reader) {
         int optionNr = 0;
-        try {
-            optionNr = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        boolean isValidResponse = false;
+        System.out.println("Select an option:");
+        do {
+            try {
+                optionNr = Integer.parseInt(reader.readLine());
+                isValidResponse = isOptionSelectionValid(optionNr);
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } while (!isValidResponse);
         System.out.println(options.get(optionNr).execute());
+
+
+    }
+
+    //No tested properly
+    private boolean isOptionSelectionValid(int optionNr) {
+        boolean isValidResponse = false;
+        if (optionNr >= options.size()) {
+            System.out.println("Please select a valid method!");
+        } else {
+            isValidResponse = true;
+
+        }
+        return isValidResponse;
     }
 }
