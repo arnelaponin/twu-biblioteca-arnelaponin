@@ -13,7 +13,7 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         Library library = new Library();
-        List<String> options = Arrays.asList("List of books", "Check out a book", "Quit");
+        List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book", "Quit");
         Menu menu = new Menu(library, options);
         System.out.println(menu);
         int optionNr = 0;
@@ -29,6 +29,8 @@ public class BibliotecaApp {
                     }else if (optionNr == 1) {
                         checkOutProcess(library);
                     } else if (optionNr == 2) {
+                        returnProcess(library);
+                    } else if (optionNr == 3) {
                         menu.quitApplication();
                     }
                 }
@@ -40,6 +42,18 @@ public class BibliotecaApp {
 
     }
 
+    private static void returnProcess(Library library) throws IOException {
+        System.out.println("Write the name of the book to return:");
+        String bookName = reader.readLine();
+        boolean checkOutStatus = library.returnByName(bookName);
+        if (checkOutStatus) {
+            System.out.println("Thank you for returning the book.");
+        } else {
+            System.out.println("This is not a valid book to return.");
+        }
+        System.out.println("Select an option:");
+    }
+
     private static void checkOutProcess(Library library) throws IOException {
         System.out.println(library.getAvailableBooks());
         System.out.println("Write the name of the book:");
@@ -48,7 +62,7 @@ public class BibliotecaApp {
         if (checkOutStatus) {
             System.out.println("Thank you! Enjoy the book.");
         } else {
-            System.out.println("Sorry, that book is not available");
+            System.out.println("Sorry, that book is not available.");
         }
         System.out.println("Select an option:");
     }
