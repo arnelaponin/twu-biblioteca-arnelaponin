@@ -76,4 +76,37 @@ public class LibraryTest {
 
     }
 
+    @Test
+    public void testBookReturnByName() {
+        Library library = new Library();
+        String checkOutBookName = "Unquiet";
+        boolean checkOutStatus = library.checkOutByName(checkOutBookName);
+        boolean returnStatus = library.returnByName(checkOutBookName);
+        assertTrue(returnStatus);
+        List<Book> books = library.getAvailableBooks();
+        boolean bookInCollection = false;
+        for (Book book: books) {
+            if (book.getName().equals(checkOutBookName)) {
+                bookInCollection = true;
+                break;
+            }
+        }
+        assertTrue(bookInCollection);
+    }
+
+    @Test
+    public void testBookReturnByNameThatWasNotBurrowed() {
+        Library library = new Library();
+        String checkOutBookName = "Unquiet";
+        boolean returnStatus = library.returnByName(checkOutBookName);
+        assertFalse(returnStatus);
+    }
+
+    @Test
+    public void testBookReturnByIncorrectName() {
+        Library library = new Library();
+        String checkOutBookName = "Un";
+        boolean returnStatus = library.returnByName(checkOutBookName);
+        assertFalse(returnStatus);
+    }
 }

@@ -37,4 +37,13 @@ public class Library {
         }
         return null;
     }
+
+    public boolean returnByName(String checkOutBookName) {
+        Book book = getBookByName(checkOutBookName);
+        if (book != null && !book.isAvailable()) {
+            book.makeAvailable();
+            return true;
+        }
+        return false;
+    }
 }
