@@ -7,37 +7,26 @@ import java.util.List;
 
 public class Menu {
 
-    private List<Option> options = null;
+    private List<String> options;
+    private Library library;
 
-    public Menu(Library lib) {
-        this.options = Arrays.asList(new Option(lib, "List of books"), new Option(lib, "Quit"));
+    public Menu(Library library, List<String> options) {
+        this.options = options;
+        this.library = library;
+    //Arrays.asList(new Option(lib, "List of books"), new Option(lib, "Quit"));
     }
 
 
-    public List<Option> getOptions() {
+    public List<String> getOptions() {
         return options;
     }
 
-    public void pickOption(BufferedReader reader) {
-        int optionNr = 0;
-        boolean isValidResponse = false;
-        System.out.println("Select an option:");
-        do {
-            try {
-                optionNr = Integer.parseInt(reader.readLine());
-                isValidResponse = isOptionSelectionValid(optionNr);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } while (!isValidResponse);
-        System.out.println(options.get(optionNr).execute());
-
-
+    public void quitApplication(){
+        System.exit(0);
     }
 
     //No tested properly
-    private boolean isOptionSelectionValid(int optionNr) {
+    public boolean isOptionSelectionValid(int optionNr) {
         boolean isValidResponse = false;
         if (optionNr >= options.size()) {
             System.out.println("Please select a valid method!");
@@ -46,5 +35,12 @@ public class Menu {
 
         }
         return isValidResponse;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "options=" + options +
+                '}';
     }
 }

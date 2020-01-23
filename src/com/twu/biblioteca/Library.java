@@ -10,7 +10,7 @@ public class Library {
     Book book2 = new Book("The Value of Everything", "Mariana Mazzucato", "2018");
     List<Book> books = Arrays.asList(book1, book2);
 
-    public List<Book> getBooks() {
+    public List<Book> getAvailableBooks() {
         return books.stream()
                 .filter(Book::isAvailable)
                 .collect(Collectors.toList());
