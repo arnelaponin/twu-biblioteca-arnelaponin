@@ -50,7 +50,7 @@ public class Menu {
     public void selectOperation(int optionNr) throws IOException {
         if (optionNr == 0) {
             presentAvailableBooks();
-        }else if (optionNr == 1) {
+        } else if (optionNr == 1) {
             presentAvailableBooks();
             String bookName = getBookNameFromInput();
             boolean checkOutStatus = library.checkOutByName(bookName);
@@ -59,6 +59,9 @@ public class Menu {
             } else {
                 printStream.println("Sorry, that book is not available.");
             }
+        } else if (optionNr == 2) {
+            String bookName = getBookNameFromInput();
+            boolean checkOutStatus = library.returnByName(bookName);
         }
     }
 

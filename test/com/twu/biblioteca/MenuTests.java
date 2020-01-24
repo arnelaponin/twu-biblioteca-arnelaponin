@@ -125,4 +125,15 @@ public class MenuTests {
         menu.selectOperation(optionNr);
         verify(printStream).println("Sorry, that book is not available.");
     }
+
+    @Test
+    public void shouldStartReturnProcessWhenOption2Selected() throws IOException {
+        Library mockedLibrary = mock(Library.class);
+        List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book");
+        Menu menu = new Menu(printStream, reader, mockedLibrary,  options);
+        when(reader.readLine()).thenReturn("Unquiet");
+        int optionNr = 2;
+        menu.selectOperation(optionNr);
+        verify(mockedLibrary).returnByName("Unquiet");
+    }
 }
