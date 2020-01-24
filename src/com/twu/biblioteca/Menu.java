@@ -67,6 +67,8 @@ public class Menu {
             } else {
                 printStream.println("This is not a valid book to return.");
             }
+        } else if (optionNr == 3) { //This option is not tested.
+            quitApplication();
         }
     }
 
