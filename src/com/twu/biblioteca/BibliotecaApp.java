@@ -17,24 +17,16 @@ public class BibliotecaApp {
         Library library = new Library();
         List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book", "Quit");
         Menu menu = new Menu(printStream, reader, library, options);
-        System.out.println(menu);
+        printStream.println(menu);
         int optionNr = 0;
         boolean isValidResponse = false;
-        System.out.println("Select an option:");
+        printStream.println("Select an option:");
         do {
             try {
                 optionNr = Integer.parseInt(reader.readLine());
                 isValidResponse = menu.isOptionSelectionValid(optionNr);
                 if (isValidResponse) {
-                    if (optionNr == 0) {
-                        System.out.println(library.getAvailableBooks());
-                    }else if (optionNr == 1) {
-                        checkOutProcess(library);
-                    } else if (optionNr == 2) {
-                        returnProcess(library);
-                    } else if (optionNr == 3) {
-                        menu.quitApplication();
-                    }
+                    menu.selectOperation(optionNr);
                 }
                 isValidResponse = false;
             } catch (IOException e) {
@@ -42,30 +34,5 @@ public class BibliotecaApp {
             }
         } while (!isValidResponse);
 
-    }
-
-    private static void returnProcess(Library library) throws IOException {
-        System.out.println("Write the name of the book to return:");
-        String bookName = reader.readLine();
-        boolean checkOutStatus = library.returnByName(bookName);
-        if (checkOutStatus) {
-            System.out.println("Thank you for returning the book.");
-        } else {
-            System.out.println("This is not a valid book to return.");
-        }
-        System.out.println("Select an option:");
-    }
-
-    private static void checkOutProcess(Library library) throws IOException {
-        System.out.println(library.getAvailableBooks());
-        System.out.println("Write the name of the book:");
-        String bookName = reader.readLine();
-        boolean checkOutStatus = library.checkOutByName(bookName);
-        if (checkOutStatus) {
-            System.out.println("Thank you! Enjoy the book.");
-        } else {
-            System.out.println("Sorry, that book is not available.");
-        }
-        System.out.println("Select an option:");
     }
 }
