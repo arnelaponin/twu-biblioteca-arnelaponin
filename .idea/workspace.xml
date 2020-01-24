@@ -49,7 +49,7 @@
       <recent name="com.twu.biblioteca" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BibliotecaApp">
+  <component name="RunManager" selected="JUnit.MenuTests">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -118,7 +118,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuTests.testInvalidMenuOptions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuTests.shouldStartCheckOutProcessWhenOption1Selected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -128,7 +128,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuTests" />
-      <option name="METHOD_NAME" value="testInvalidMenuOptions" />
+      <option name="METHOD_NAME" value="shouldStartCheckOutProcessWhenOption1Selected" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,16 +139,16 @@
       <item itemvalue="JUnit.LibraryTest" />
       <item itemvalue="JUnit.MenuTests" />
       <item itemvalue="JUnit.BookTests" />
-      <item itemvalue="JUnit.MenuTests.testInvalidMenuOptions" />
       <item itemvalue="JUnit.LibraryTest.testBookReturnByName" />
+      <item itemvalue="JUnit.MenuTests.shouldStartCheckOutProcessWhenOption1Selected" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MenuTests" />
+        <item itemvalue="JUnit.MenuTests.shouldStartCheckOutProcessWhenOption1Selected" />
         <item itemvalue="JUnit.LibraryTest" />
         <item itemvalue="JUnit.BookTests" />
         <item itemvalue="JUnit.LibraryTest.testBookReturnByName" />
-        <item itemvalue="JUnit.MenuTests.testInvalidMenuOptions" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579610013850</updated>
       <workItem from="1579610016696" duration="20805000" />
-      <workItem from="1579707012975" duration="25931000" />
+      <workItem from="1579707012975" duration="28735000" />
     </task>
     <servers />
   </component>
@@ -200,30 +200,30 @@
       <screen x="0" y="23" width="1680" height="961" />
     </state>
     <state x="672" y="401" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.961@0.23.1680.961" timestamp="1579610057138" />
-    <state width="1358" height="245" key="GridCell.Tab.0.bottom" timestamp="1579882255891">
+    <state width="1358" height="245" key="GridCell.Tab.0.bottom" timestamp="1579884757854">
       <screen x="0" y="23" width="1920" height="1097" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
-    <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1579882255891" />
-    <state width="1358" height="245" key="GridCell.Tab.0.center" timestamp="1579882255890">
+    <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1579884757854" />
+    <state width="1358" height="245" key="GridCell.Tab.0.center" timestamp="1579884757854">
       <screen x="0" y="23" width="1920" height="1097" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
-    <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1579882255890" />
-    <state width="1358" height="245" key="GridCell.Tab.0.left" timestamp="1579882255890">
+    <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1579884757854" />
+    <state width="1358" height="245" key="GridCell.Tab.0.left" timestamp="1579884757853">
       <screen x="0" y="23" width="1920" height="1097" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1579707255303" />
-    <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1579882255890" />
-    <state width="1358" height="245" key="GridCell.Tab.0.right" timestamp="1579882255890">
+    <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1579884757853" />
+    <state width="1358" height="245" key="GridCell.Tab.0.right" timestamp="1579884757854">
       <screen x="0" y="23" width="1920" height="1097" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
-    <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1579882255890" />
+    <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1579884757854" />
     <state x="341" y="141" key="SettingsEditor" timestamp="1579772898271">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
@@ -238,9 +238,9 @@
       <screen x="0" y="23" width="1680" height="952" />
     </state>
     <state x="750" y="347" key="extract.method.dialog/0.23.1680.952@0.23.1680.952" timestamp="1579855448817" />
-    <state x="602" y="268" key="refactoring.ChangeSignatureDialog" timestamp="1579882016587">
+    <state x="602" y="268" key="refactoring.ChangeSignatureDialog" timestamp="1579884585222">
       <screen x="0" y="23" width="1920" height="1097" />
     </state>
-    <state x="602" y="268" key="refactoring.ChangeSignatureDialog/0.23.1920.1097@0.23.1920.1097" timestamp="1579882016587" />
+    <state x="602" y="268" key="refactoring.ChangeSignatureDialog/0.23.1920.1097@0.23.1920.1097" timestamp="1579884585222" />
   </component>
 </project>

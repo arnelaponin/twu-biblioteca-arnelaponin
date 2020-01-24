@@ -16,7 +16,7 @@ public class BibliotecaApp {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         Library library = new Library();
         List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book", "Quit");
-        Menu menu = new Menu(printStream, options);
+        Menu menu = new Menu(printStream, reader, library, options);
         System.out.println(menu);
         int optionNr = 0;
         boolean isValidResponse = false;
