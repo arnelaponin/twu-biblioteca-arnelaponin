@@ -51,24 +51,32 @@ public class Menu {
         if (optionNr == 0) {
             presentAvailableBooks();
         } else if (optionNr == 1) {
-            presentAvailableBooks();
-            String bookName = getBookNameFromInput();
-            boolean checkOutStatus = library.checkOutByName(bookName);
-            if (checkOutStatus) {
-                printStream.println("Thank you! Enjoy the book.");
-            } else {
-                printStream.println("Sorry, that book is not available.");
-            }
+            checkOutProcess();
         } else if (optionNr == 2) {
-            String bookName = getBookNameFromInput();
-            boolean returnStatus = library.returnByName(bookName);
-            if (returnStatus) {
-                printStream.println("Thank you for returning the book.");
-            } else {
-                printStream.println("This is not a valid book to return.");
-            }
+            returnProcess();
         } else if (optionNr == 3) { //This option is not tested.
             quitApplication();
+        }
+    }
+
+    private void returnProcess() throws IOException {
+        String bookName = getBookNameFromInput();
+        boolean returnStatus = library.returnByName(bookName);
+        if (returnStatus) {
+            printStream.println("Thank you for returning the book.");
+        } else {
+            printStream.println("This is not a valid book to return.");
+        }
+    }
+
+    private void checkOutProcess() throws IOException {
+        presentAvailableBooks();
+        String bookName = getBookNameFromInput();
+        boolean checkOutStatus = library.checkOutByName(bookName);
+        if (checkOutStatus) {
+            printStream.println("Thank you! Enjoy the book.");
+        } else {
+            printStream.println("Sorry, that book is not available.");
         }
     }
 
