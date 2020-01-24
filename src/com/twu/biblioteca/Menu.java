@@ -61,7 +61,10 @@ public class Menu {
             }
         } else if (optionNr == 2) {
             String bookName = getBookNameFromInput();
-            boolean checkOutStatus = library.returnByName(bookName);
+            boolean returnStatus = library.returnByName(bookName);
+            if (returnStatus) {
+                printStream.println("Thank you for returning the book.");
+            }
         }
     }
 

@@ -136,4 +136,15 @@ public class MenuTests {
         menu.selectOperation(optionNr);
         verify(mockedLibrary).returnByName("Unquiet");
     }
+
+    @Test
+    public void shouldNotifyOfSuccessWhenBookReturnedSuccessfully() throws IOException {
+        List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book");
+        Menu menu = new Menu(printStream, reader, library,  options);
+        library.checkOutByName("Unquiet");
+        when(reader.readLine()).thenReturn("Unquiet");
+        int optionNr = 2;
+        menu.selectOperation(optionNr);
+        verify(printStream).println("Thank you for returning the book.");
+    }
 }
