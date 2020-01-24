@@ -49,14 +49,26 @@ public class Menu {
 
     public void selectOperation(int optionNr) throws IOException {
         if (optionNr == 0) {
-            List<Book> books = library.getAvailableBooks();
-            printStream.println(books);
+            presentAvailableBooks();
         }else if (optionNr == 1) {
-            //checkOutProcess(library);
-            printStream.println(library.getAvailableBooks());
-            printStream.println("Write the name of the book:");
-            String bookName = reader.readLine();
+            presentAvailableBooks();
+            String bookName = getBookNameFromInput();
             boolean checkOutStatus = library.checkOutByName(bookName);
+            if (checkOutStatus) {
+                printStream.println("Thank you! Enjoy the book.");
+            } else {
+                printStream.println("Sorry, that book is not available.");
+            }
         }
+    }
+
+    private String getBookNameFromInput() throws IOException {
+        printStream.println("Write the name of the book:");
+        return reader.readLine();
+    }
+
+    private void presentAvailableBooks() {
+        List<Book> books = library.getAvailableBooks();
+        printStream.println(books);
     }
 }

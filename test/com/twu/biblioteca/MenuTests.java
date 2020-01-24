@@ -19,12 +19,16 @@ public class MenuTests {
     private PrintStream printStream;
     private Library library;
     private BufferedReader reader;
+    List<Book> books;
 
     @Before
     public void setUp() throws Exception {
         printStream = mock(PrintStream.class);
         library = new Library();
         reader = mock(BufferedReader.class);
+        Book book1 = new Book("Unquiet", "Linn Ullmann", "2018");
+        Book book2 = new Book("The Value of Everything", "Mariana Mazzucato", "2018");
+        books = Arrays.asList(book1, book2);
     }
 
     @Test
@@ -100,5 +104,25 @@ public class MenuTests {
         int optionNr = 1;
         menu.selectOperation(optionNr);
         verify(mockedLibrary).checkOutByName("Unquiet");
+    }
+
+    @Test
+    public void shouldNotifyOfSuccessWhenBookCheckedOutSuccessfully() throws IOException {
+        List<String> options = Arrays.asList("List of books", "Check out a book");
+        Menu menu = new Menu(printStream, reader, library,  options);
+        when(reader.readLine()).thenReturn("Unquiet");
+        int optionNr = 1;
+        menu.selectOperation(optionNr);
+        verify(printStream).println("Thank you! Enjoy the book.");
+    }
+
+    @Test
+    public void shouldNotifyOfFailureWhenBookNotCheckedOut() throws IOException {
+        List<String> options = Arrays.asList("List of books", "Check out a book");
+        Menu menu = new Menu(printStream, reader, library,  options);
+        when(reader.readLine()).thenReturn("Book X");
+        int optionNr = 1;
+        menu.selectOperation(optionNr);
+        verify(printStream).println("Sorry, that book is not available.");
     }
 }
