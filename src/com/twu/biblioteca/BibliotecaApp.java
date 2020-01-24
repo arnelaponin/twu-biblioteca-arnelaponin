@@ -3,18 +3,20 @@ package com.twu.biblioteca;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
 public class BibliotecaApp {
 
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static PrintStream printStream = System.out;
 
     public static void main(String[] args) {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         Library library = new Library();
         List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book", "Quit");
-        Menu menu = new Menu(options);
+        Menu menu = new Menu(printStream, options);
         System.out.println(menu);
         int optionNr = 0;
         boolean isValidResponse = false;
