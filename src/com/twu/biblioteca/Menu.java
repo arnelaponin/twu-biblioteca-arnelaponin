@@ -64,6 +64,8 @@ public class Menu {
             boolean returnStatus = library.returnByName(bookName);
             if (returnStatus) {
                 printStream.println("Thank you for returning the book.");
+            } else {
+                printStream.println("This is not a valid book to return.");
             }
         }
     }
