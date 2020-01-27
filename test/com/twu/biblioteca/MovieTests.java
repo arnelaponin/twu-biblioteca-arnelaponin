@@ -33,7 +33,7 @@ public class MovieTests {
 
     @Test
     public void shouldHaveYearWhenMovieIsCreated() {
-        assertThat(movie.getDirector(), is("2019"));
+        assertThat(movie.getYear(), is("2019"));
     }
 
     @Test

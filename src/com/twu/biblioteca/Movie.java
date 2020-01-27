@@ -1,32 +1,15 @@
 package com.twu.biblioteca;
 
-public class Movie {
+public class Movie extends LibraryEntity {
 
-    private String title;
-    private String director;
-    private String year;
     private double rating;
 
     public Movie(String title, String director, String year, double rating) {
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public String getYear() {
-        return year;
+        super(title, director, year);
+        this.rating = rating;
     }
 
     public double getRating() {
         return rating;
-    }
-
-    public boolean isAvailable() {
-        return true;
     }
 }
