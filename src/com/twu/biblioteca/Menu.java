@@ -54,13 +54,6 @@ public class Menu {
         return isValidResponse;
     }
 
-    @Override
-    public String toString() {
-        return "Menu{" +
-                "options=" + options +
-                '}';
-    }
-
     public void selectOperation(int optionNr) throws IOException {
         if (optionNr == MenuOption.valueOf("LIST").getCode()) {
             presentAvailableBooks();
@@ -101,6 +94,10 @@ public class Menu {
 
     private void presentAvailableBooks() {
         List<Book> books = library.getAvailableBooks();
-        printStream.println(books);
+        StringBuilder stringBuilder = new StringBuilder("All the available books:\n");
+        for (Book book : books) {
+            stringBuilder.append(book).append("\n");
+        }
+        printStream.println(stringBuilder.toString());
     }
 }

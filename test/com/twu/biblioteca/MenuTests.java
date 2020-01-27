@@ -22,7 +22,7 @@ public class MenuTests {
     List<Book> books;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         printStream = mock(PrintStream.class);
         library = new Library();
         reader = mock(BufferedReader.class);
