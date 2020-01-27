@@ -62,6 +62,8 @@ public class Menu {
             returnProcess();
         } else if (optionNr == MenuOption.valueOf("QUIT").getCode()) { //This option is not tested.
             quitApplication();
+        } else if (optionNr == 4) {
+            presentAvailableMovies();
         }
     }
 
@@ -99,6 +101,16 @@ public class Menu {
             stringBuilder.append(book).append("\n");
         }
         printStream.println(stringBuilder.toString());
+    }
+
+    public void presentAvailableMovies() {
+        List<LibraryEntity> resources = library.getAvailableMovies();
+        StringBuilder sb = new StringBuilder("All the available movies:");
+        sb.append("\n");
+        for (LibraryEntity resource: resources) {
+            sb.append(resource.toString()).append("\n");
+        }
+        printStream.println(sb.toString());
     }
 
     public void start() {

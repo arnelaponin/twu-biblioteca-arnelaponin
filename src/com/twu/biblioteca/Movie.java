@@ -38,4 +38,9 @@ public class Movie implements LibraryEntity {
     public boolean isAvailable() {
         return status;
     }
+
+    @Override
+    public String toString() {
+        return '\'' + name + "', by " + director + ", (" + year + "), " + rating;
+    }
 }

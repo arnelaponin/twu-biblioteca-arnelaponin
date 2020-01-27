@@ -97,6 +97,28 @@ public class MenuTests {
     }
 
     @Test
+    public void shouldPrintAllMoviesWhenPrintMoviesOption4Selected() throws IOException {
+        Library mockedLibrary = mock(Library.class);
+        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        int optionNr = 4;
+        menu.selectOperation(optionNr);
+        verify(mockedLibrary).getAvailableMovies();
+    }
+
+    @Test
+    public void shouldPrintAllMoviesInUserFriendlyManner() {
+        Movie movie1 = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019", 9.5);
+        Movie movie2 = new Movie("Parasite", "Bong Joon-ho", "2019", 9.9);
+        Menu menu = new Menu(printStream, reader, library);
+
+        menu.presentAvailableMovies();
+
+        String movies = "All the available movies:\n" + movie1 + "\n" +
+                movie2 + "\n";
+        verify(printStream).println(movies);
+    }
+
+    @Test
     public void shouldStartCheckOutProcessWhenOption1Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
         Menu menu = new Menu(printStream, reader, mockedLibrary);
