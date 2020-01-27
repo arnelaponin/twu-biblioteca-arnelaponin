@@ -8,11 +8,24 @@ public class Library {
 
     Book book1 = new Book("Unquiet", "Linn Ullmann", "2018");
     Book book2 = new Book("The Value of Everything", "Mariana Mazzucato", "2018");
+    Movie movie1 = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019", 9.5);
+    Movie movie2 = new Movie("Parasite", "Bong Joon-ho", "2019", 9.9);
     List<Book> books = Arrays.asList(book1, book2);
+    List<LibraryEntity> movies = Arrays.asList(movie1, movie2);
 
     public List<Book> getAvailableBooks() {
         return books.stream()
                 .filter(Book::isAvailable)
+                .collect(Collectors.toList());
+    }
+
+    public List<LibraryEntity> getAvailableMovies() {
+        return getAvailableResources(movies);
+    }
+
+    public List<LibraryEntity> getAvailableResources(List<LibraryEntity> resources){
+        return resources.stream()
+                .filter(LibraryEntity::isAvailable)
                 .collect(Collectors.toList());
     }
 

@@ -109,4 +109,11 @@ public class LibraryTest {
         boolean returnStatus = library.returnByName(checkOutBookName);
         assertFalse(returnStatus);
     }
+
+    @Test
+    public void shouldRetrieveAvailableMovies() {
+        Library library = new Library();
+        List<LibraryEntity> movies = library.getAvailableMovies();
+        assertTrue(movies.size() > 0);
+    }
 }
