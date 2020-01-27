@@ -3,9 +3,9 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class MovieTests {
 
@@ -13,7 +13,7 @@ public class MovieTests {
 
     @Before
     public void setUp() {
-        movie = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019", 9.5);
+        movie = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019");
     }
 
     @Test
@@ -37,7 +37,30 @@ public class MovieTests {
     }
 
     @Test
-    public void shouldHaveRatingWhenMovieIsCreated() {
-        assertThat(movie.getRating(), is(9.5));
+    public void shouldHaveRating0WhenMovieIsCreated() {
+        assertThat(movie.getRating(), is(0.0));
+    }
+
+    @Test
+    public void shouldHaveRatingWhenRatingSet() throws RatingRangeException {
+        movie.setRating(9);
+        assertThat(movie.getRating(), is(9.0));
+    }
+
+    @Test
+    public void shouldPrintUnratedWhenRatingNotSet() {
+        assertThat(movie.toString(), containsString("unrated"));
+    }
+
+    @Test
+    public void shouldNotPrintUnratedWhenRatingSet() throws RatingRangeException {
+        movie.setRating(9);
+        assertNotNull(movie.toString());
+        assertThat(movie.toString(), containsString("9"));
+    }
+
+    @Test(expected = RatingRangeException.class)
+    public void shouldNotHaveRating0dWhenRatingSet() throws RatingRangeException {
+        movie.setRating(0);
     }
 }

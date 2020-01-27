@@ -106,9 +106,10 @@ public class MenuTests {
     }
 
     @Test
-    public void shouldPrintAllMoviesInUserFriendlyManner() {
-        Movie movie1 = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019", 9.5);
-        Movie movie2 = new Movie("Parasite", "Bong Joon-ho", "2019", 9.9);
+    public void shouldPrintAllMoviesInUserFriendlyManner() throws RatingRangeException {
+        Movie movie1 = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019");
+        movie1.setRating(9);
+        Movie movie2 = new Movie("Parasite", "Bong Joon-ho", "2019");
         Menu menu = new Menu(printStream, reader, library);
 
         menu.presentAvailableMovies();
