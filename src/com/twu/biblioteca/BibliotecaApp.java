@@ -13,15 +13,13 @@ public class BibliotecaApp {
     private static PrintStream printStream = System.out;
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
+        printStream.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         Library library = new Library();
-        List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book", "Quit");
         Menu menu = new Menu(printStream, reader, library);
         printStream.println(menu.printAllOptions());
-        printStream.println(menu);
         int optionNr = 0;
         boolean isValidResponse = false;
-        printStream.println("Select an option:");
+        printStream.println("Select an option number:");
         do {
             try {
                 optionNr = Integer.parseInt(reader.readLine());
