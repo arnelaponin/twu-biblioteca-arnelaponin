@@ -33,16 +33,14 @@ public class MenuTests {
 
     @Test
     public void testMenuHasOneOption() {
-        List<String> options = Arrays.asList("List of books");
-        Menu menu = new Menu(printStream, reader, library, options);
-        assertEquals("List of books", menu.getOptions().get(0));
+        Menu menu = new Menu(printStream, reader, library);
+        assertEquals("List of books", menu.getOptions().get(0).getName());
     }
 
     @Test
     public void testSelectingBookOptionReturnsListOfBooks() {
         Library lib = new Library();
-        List<String> options = Arrays.asList("List of books");
-        Menu menu = new Menu(printStream, reader, library, options);
+        Menu menu = new Menu(printStream, reader, library);
         List<Book> books = lib.getAvailableBooks();
         Book book = books.get(0);
         assertEquals("Unquiet", book.getName());
@@ -52,25 +50,30 @@ public class MenuTests {
 
     @Test
     public void testValidMenuOption() {
-        List<String> options = Arrays.asList("List of books", "Quit");
-        Menu menu = new Menu(printStream, reader, library, options);
+        Menu menu = new Menu(printStream, reader, library);
         boolean isValid = menu.isOptionSelectionValid(0);
         assertTrue(isValid);
     }
 
     @Test
     public void testInvalidMenuOption() {
-        List<String> options = Arrays.asList("List of books", "Quit");
-        Menu menu = new Menu(printStream, reader, library, options);
-        boolean isValid = menu.isOptionSelectionValid(2);
+        Menu menu = new Menu(printStream, reader, library);
+        boolean isValid = menu.isOptionSelectionValid(5);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void shouldBeInvalidWhenOptionIsLessThan0() {
+        Menu menu = new Menu(printStream, reader, library);
+        boolean isValid = menu.isOptionSelectionValid(-1);
         assertFalse(isValid);
     }
 
     @Test
     public void testMenuHasQuittingOption() {
-        List<String> options = Arrays.asList("List of books", "Quit");
-        Menu menu = new Menu(printStream, reader, library, options);
-        assertEquals("Quit", menu.getOptions().get(1));
+        Menu menu = new Menu(printStream, reader, library);
+        MenuOption quitOption = MenuOption.QUIT;
+        assertEquals(quitOption.getName(), menu.getOptions().get(quitOption.getCode()).getName());
     }
 
     @Rule
@@ -79,8 +82,7 @@ public class MenuTests {
 
     @Test
     public void testQuittingTheApplication() {
-        List<String> options = Arrays.asList("Quit");
-        Menu menu = new Menu(printStream, reader, library, options);
+        Menu menu = new Menu(printStream, reader, library);
         exit.expectSystemExit();
         menu.quitApplication();
     }
@@ -88,8 +90,7 @@ public class MenuTests {
     @Test
     public void shouldPrintAllBooksWhenPrintBooksOption0Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        List<String> options = Arrays.asList("List of books", "Check out a book");
-        Menu menu = new Menu(printStream, reader, mockedLibrary,  options);
+        Menu menu = new Menu(printStream, reader, mockedLibrary);
         int optionNr = 0;
         menu.selectOperation(optionNr);
         verify(mockedLibrary).getAvailableBooks();
@@ -98,8 +99,7 @@ public class MenuTests {
     @Test
     public void shouldStartCheckOutProcessWhenOption1Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        List<String> options = Arrays.asList("List of books", "Check out a book");
-        Menu menu = new Menu(printStream, reader, mockedLibrary,  options);
+        Menu menu = new Menu(printStream, reader, mockedLibrary);
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 1;
         menu.selectOperation(optionNr);
@@ -108,8 +108,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfSuccessWhenBookCheckedOutSuccessfully() throws IOException {
-        List<String> options = Arrays.asList("List of books", "Check out a book");
-        Menu menu = new Menu(printStream, reader, library,  options);
+        Menu menu = new Menu(printStream, reader, library);
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 1;
         menu.selectOperation(optionNr);
@@ -118,8 +117,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfFailureWhenBookNotCheckedOut() throws IOException {
-        List<String> options = Arrays.asList("List of books", "Check out a book");
-        Menu menu = new Menu(printStream, reader, library,  options);
+        Menu menu = new Menu(printStream, reader, library);
         when(reader.readLine()).thenReturn("Book X");
         int optionNr = 1;
         menu.selectOperation(optionNr);
@@ -129,8 +127,7 @@ public class MenuTests {
     @Test
     public void shouldStartReturnProcessWhenOption2Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book");
-        Menu menu = new Menu(printStream, reader, mockedLibrary,  options);
+        Menu menu = new Menu(printStream, reader, mockedLibrary);
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 2;
         menu.selectOperation(optionNr);
@@ -139,8 +136,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfSuccessWhenBookReturnedSuccessfully() throws IOException {
-        List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book");
-        Menu menu = new Menu(printStream, reader, library,  options);
+        Menu menu = new Menu(printStream, reader, library);
         library.checkOutByName("Unquiet");
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 2;
@@ -150,8 +146,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfFailureWhenBookNotReturned() throws IOException {
-        List<String> options = Arrays.asList("List of books", "Check out a book", "Return a book");
-        Menu menu = new Menu(printStream, reader, library,  options);
+        Menu menu = new Menu(printStream, reader, library);
         library.checkOutByName("Unquiet");
         when(reader.readLine()).thenReturn("Unqu");
         int optionNr = 2;

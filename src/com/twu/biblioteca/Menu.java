@@ -3,24 +3,34 @@ package com.twu.biblioteca;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Menu {
 
     private final PrintStream printStream;
     private final BufferedReader reader;
-    private List<String> options;
     private Library library;
+    private List<MenuOption> options = Arrays.asList(MenuOption.LIST, MenuOption.CHECKOUT, MenuOption.RETURN, MenuOption.QUIT);
 
-    public Menu(PrintStream printstream, BufferedReader reader, Library library, List<String> options) {
+    public Menu(PrintStream printstream, BufferedReader reader, Library library) {
         this.printStream = printstream;
         this.reader = reader;
-        this.options = options;
         this.library = library;
     }
 
+    public String printAllOptions() {
+        StringBuilder stringBuilder = new StringBuilder("");
+        for (MenuOption option : options) {
+            String optionPrintOut = "Option " + option.getCode() + " : " + option.getName() + "\n";
+            stringBuilder.append(optionPrintOut);
+        }
+        return stringBuilder.toString();
+    }
 
-    public List<String> getOptions() {
+    public List<MenuOption> getOptions() {
         return options;
     }
 
@@ -31,7 +41,11 @@ public class Menu {
     //No tested properly
     public boolean isOptionSelectionValid(int optionNr) {
         boolean isValidResponse = false;
-        if (optionNr >= options.size()) {
+        Set<Integer> set = new HashSet<>();
+        for (MenuOption opt: options) {
+            set.add(opt.getCode());
+        }
+        if (!set.contains(optionNr)) {
             printStream.println("Please select a valid method!");
         } else {
             isValidResponse = true;
@@ -48,13 +62,13 @@ public class Menu {
     }
 
     public void selectOperation(int optionNr) throws IOException {
-        if (optionNr == 0) {
+        if (optionNr == MenuOption.valueOf("LIST").getCode()) {
             presentAvailableBooks();
-        } else if (optionNr == 1) {
+        } else if (optionNr == MenuOption.valueOf("CHECKOUT").getCode()) {
             checkOutProcess();
-        } else if (optionNr == 2) {
+        } else if (optionNr == MenuOption.valueOf("RETURN").getCode()) {
             returnProcess();
-        } else if (optionNr == 3) { //This option is not tested.
+        } else if (optionNr == MenuOption.valueOf("QUIT").getCode()) { //This option is not tested.
             quitApplication();
         }
     }
