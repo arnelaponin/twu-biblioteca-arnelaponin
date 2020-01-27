@@ -43,7 +43,7 @@ public class MenuTests {
         Menu menu = new Menu(printStream, reader, library);
         List<Book> books = lib.getAvailableBooks();
         Book book = books.get(0);
-        assertEquals("Unquiet", book.getName());
+        assertEquals("Unquiet", book.getTitle());
         assertEquals("Linn Ullmann", book.getAuthor());
         assertEquals("2018", book.getYear());
     }

@@ -19,22 +19,22 @@ public class LibraryTest {
     @Test
     public void testLibraryHasOneBookWithName() {
         Library lib = new Library();
-        assertEquals("Unquiet", lib.getAvailableBooks().get(0).getName());
+        assertEquals("Unquiet", lib.getAvailableBooks().get(0).getTitle());
     }
 
     @Test
     public void testLibraryHasMultipleBooksWithName() {
         Library lib = new Library();
         List<Book> books = lib.getAvailableBooks();
-        assertEquals("Unquiet", books.get(0).getName());
-        assertEquals("The Value of Everything", books.get(1).getName());
+        assertEquals("Unquiet", books.get(0).getTitle());
+        assertEquals("The Value of Everything", books.get(1).getTitle());
     }
 
     @Test
     public void testLibraryHasOneBookWithNameAuthorYear() {
         Library lib = new Library();
         Book book = lib.getAvailableBooks().get(0);
-        assertEquals("Unquiet", book.getName());
+        assertEquals("Unquiet", book.getTitle());
         assertEquals("Linn Ullmann", book.getAuthor());
         assertEquals("2018", book.getYear());
     }
@@ -59,7 +59,7 @@ public class LibraryTest {
         List<Book> books = library.getAvailableBooks();
         boolean bookInCollection = false;
         for (Book book: books) {
-            if (book.getName().equals(checkOutBookName)) {
+            if (book.getTitle().equals(checkOutBookName)) {
                 bookInCollection = true;
                 break;
             }
@@ -86,7 +86,7 @@ public class LibraryTest {
         List<Book> books = library.getAvailableBooks();
         boolean bookInCollection = false;
         for (Book book: books) {
-            if (book.getName().equals(checkOutBookName)) {
+            if (book.getTitle().equals(checkOutBookName)) {
                 bookInCollection = true;
                 break;
             }

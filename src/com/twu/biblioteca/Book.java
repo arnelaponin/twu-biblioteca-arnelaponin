@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book implements LibraryEntity {
 
     public Book(String name, String author, String year) {
         this.name = name;
@@ -14,7 +14,7 @@ public class Book {
     private String year;
     private boolean status;
 
-    public String getName() {
+    public String getTitle() {
         return name;
     }
 

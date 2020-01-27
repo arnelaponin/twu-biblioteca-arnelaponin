@@ -54,7 +54,7 @@ public class Library {
 
     private Book getBookByName(String bookName) {
         for (Book book: books) {
-            if (book.getName().equals(bookName)) {
+            if (book.getTitle().equals(bookName)) {
                 return book;
             }
         }
