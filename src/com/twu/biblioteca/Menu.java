@@ -62,26 +62,30 @@ public class Menu {
         if (optionNr == MenuOption.valueOf("LIST").getCode()) {
             presentAvailableBooks();
         } else if (optionNr == MenuOption.valueOf("CHECKOUT").getCode()) {
-            checkOutProcess();
+            bookCheckOutProcess();
         } else if (optionNr == MenuOption.valueOf("RETURN").getCode()) {
-            returnProcess();
+            bookReturnProcess();
         } else if (optionNr == MenuOption.valueOf("QUIT").getCode()) { //This option is not tested.
             quitApplication();
         } else if (optionNr == MenuOption.valueOf("LIST_MOVIES").getCode()) {
             presentAvailableMovies();
         } else if (optionNr == 5) {
-            presentAvailableMovies();
-            String movieName = getMovieNameFromInput();
-            boolean checkOutStatus = library.checkOutMovieByName(movieName);
-            if (checkOutStatus) {
-                printStream.println("Thank you! Enjoy the movie.");
-            } else {
-                printStream.println("Sorry, that movie is not available.");
-            }
+            movieCheckOutProcess();
         }
     }
 
-    private void returnProcess() throws IOException {
+    private void movieCheckOutProcess() throws IOException {
+        presentAvailableMovies();
+        String movieName = getMovieNameFromInput();
+        boolean checkOutStatus = library.checkOutMovieByName(movieName);
+        if (checkOutStatus) {
+            printStream.println("Thank you! Enjoy the movie.");
+        } else {
+            printStream.println("Sorry, that movie is not available.");
+        }
+    }
+
+    private void bookReturnProcess() throws IOException {
         String bookName = getBookNameFromInput();
         boolean returnStatus = library.returnByName(bookName);
         if (returnStatus) {
@@ -91,10 +95,10 @@ public class Menu {
         }
     }
 
-    private void checkOutProcess() throws IOException {
+    private void bookCheckOutProcess() throws IOException {
         presentAvailableBooks();
         String bookName = getBookNameFromInput();
-        boolean checkOutStatus = library.checkOutByName(bookName);
+        boolean checkOutStatus = library.checkOutBookByName(bookName);
         if (checkOutStatus) {
             printStream.println("Thank you! Enjoy the book.");
         } else {
@@ -113,23 +117,24 @@ public class Menu {
     }
 
     private void presentAvailableBooks() {
-        List<Book> books = library.getAvailableBooks();
-        StringBuilder stringBuilder = new StringBuilder("All the available books:");
-        stringBuilder.append("\n");
-        for (Book book : books) {
-            stringBuilder.append(book).append("\n");
-        }
-        printStream.println(stringBuilder.toString());
+        List<LibraryEntity> resources = library.getAvailableBooks();
+        StringBuilder sb = buildResourceRepresentation(resources, "All the available books:");
+        printStream.println(sb.toString());
     }
 
     public void presentAvailableMovies() {
         List<LibraryEntity> resources = library.getAvailableMovies();
-        StringBuilder sb = new StringBuilder("All the available movies:");
+        StringBuilder sb = buildResourceRepresentation(resources, "All the available movies:");
+        printStream.println(sb.toString());
+    }
+
+    private StringBuilder buildResourceRepresentation(List<LibraryEntity> resources, String introduction) {
+        StringBuilder sb = new StringBuilder(introduction);
         sb.append("\n");
-        for (LibraryEntity resource: resources) {
+        for (LibraryEntity resource : resources) {
             sb.append(resource.toString()).append("\n");
         }
-        printStream.println(sb.toString());
+        return sb;
     }
 
     public void start() {

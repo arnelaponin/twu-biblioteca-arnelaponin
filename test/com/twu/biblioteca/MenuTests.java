@@ -41,8 +41,8 @@ public class MenuTests {
     public void testSelectingBookOptionReturnsListOfBooks() {
         Library lib = new Library();
         Menu menu = new Menu(printStream, reader, library);
-        List<Book> books = lib.getAvailableBooks();
-        Book book = books.get(0);
+        List<LibraryEntity> books = lib.getAvailableBooks();
+        Book book = (Book) books.get(0);
         assertEquals("Unquiet", book.getTitle());
         assertEquals("Linn Ullmann", book.getAuthor());
         assertEquals("2018", book.getYear());
@@ -126,7 +126,7 @@ public class MenuTests {
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 1;
         menu.selectOperation(optionNr);
-        verify(mockedLibrary).checkOutByName("Unquiet");
+        verify(mockedLibrary).checkOutBookByName("Unquiet");
     }
 
     @Test
@@ -160,7 +160,7 @@ public class MenuTests {
     @Test
     public void shouldNotifyOfSuccessWhenBookReturnedSuccessfully() throws IOException {
         Menu menu = new Menu(printStream, reader, library);
-        library.checkOutByName("Unquiet");
+        library.checkOutBookByName("Unquiet");
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 2;
         menu.selectOperation(optionNr);
@@ -170,7 +170,7 @@ public class MenuTests {
     @Test
     public void shouldNotifyOfFailureWhenBookNotReturned() throws IOException {
         Menu menu = new Menu(printStream, reader, library);
-        library.checkOutByName("Unquiet");
+        library.checkOutBookByName("Unquiet");
         when(reader.readLine()).thenReturn("Unqu");
         int optionNr = 2;
         menu.selectOperation(optionNr);

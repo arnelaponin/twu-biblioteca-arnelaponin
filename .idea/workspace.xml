@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="960d6684-feba-4081-80b3-5adadcbafe49" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTests.java" afterDir="false" />
     </list>
@@ -73,6 +74,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MenuTests.shouldNotifyOfSuccessWhenMovieCheckedOutSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuTests" />
+      <option name="METHOD_NAME" value="shouldNotifyOfSuccessWhenMovieCheckedOutSuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MenuTests.shouldStartMovieCheckOutProcessWhenOption5Selected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -104,22 +121,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieTests.shouldHaveRatingWhenMovieIsCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MovieTests" />
-      <option name="METHOD_NAME" value="shouldHaveRatingWhenMovieIsCreated" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="com.twu.biblioteca in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -138,17 +139,17 @@
       <item itemvalue="Application.BibliotecaApp" />
       <item itemvalue="JUnit.MenuTests" />
       <item itemvalue="JUnit.MovieTests" />
-      <item itemvalue="JUnit.MovieTests.shouldHaveRatingWhenMovieIsCreated" />
       <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
       <item itemvalue="JUnit.MenuTests.shouldStartMovieCheckOutProcessWhenOption5Selected" />
+      <item itemvalue="JUnit.MenuTests.shouldNotifyOfSuccessWhenMovieCheckedOutSuccessfully" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
         <item itemvalue="JUnit.MenuTests" />
+        <item itemvalue="JUnit.MenuTests.shouldNotifyOfSuccessWhenMovieCheckedOutSuccessfully" />
         <item itemvalue="JUnit.MenuTests.shouldStartMovieCheckOutProcessWhenOption5Selected" />
         <item itemvalue="JUnit.MovieTests" />
-        <item itemvalue="JUnit.MovieTests.shouldHaveRatingWhenMovieIsCreated" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +176,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579610013850</updated>
       <workItem from="1579610016696" duration="20805000" />
-      <workItem from="1579707012975" duration="52128000" />
+      <workItem from="1579707012975" duration="53950000" />
     </task>
     <servers />
   </component>
@@ -206,38 +207,39 @@
       <screen x="0" y="23" width="1680" height="961" />
     </state>
     <state x="672" y="401" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.961@0.23.1680.961" timestamp="1579610057138" />
-    <state width="1565" height="245" key="GridCell.Tab.0.bottom" timestamp="1580135294297">
+    <state width="1565" height="245" key="GridCell.Tab.0.bottom" timestamp="1580137319488">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143379" />
-    <state width="1565" height="245" key="GridCell.Tab.0.bottom/0.23.1920.1177@0.23.1920.1177" timestamp="1580135294297" />
-    <state width="1565" height="245" key="GridCell.Tab.0.center" timestamp="1580135294297">
+    <state width="1565" height="245" key="GridCell.Tab.0.bottom/0.23.1920.1177@0.23.1920.1177" timestamp="1580137319488" />
+    <state width="1565" height="245" key="GridCell.Tab.0.center" timestamp="1580137319488">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143378" />
-    <state width="1565" height="245" key="GridCell.Tab.0.center/0.23.1920.1177@0.23.1920.1177" timestamp="1580135294297" />
-    <state width="1565" height="245" key="GridCell.Tab.0.left" timestamp="1580135294296">
+    <state width="1565" height="245" key="GridCell.Tab.0.center/0.23.1920.1177@0.23.1920.1177" timestamp="1580137319488" />
+    <state width="1565" height="245" key="GridCell.Tab.0.left" timestamp="1580137319487">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1579707255303" />
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143378" />
-    <state width="1565" height="245" key="GridCell.Tab.0.left/0.23.1920.1177@0.23.1920.1177" timestamp="1580135294296" />
-    <state width="1565" height="245" key="GridCell.Tab.0.right" timestamp="1580135294297">
+    <state width="1565" height="245" key="GridCell.Tab.0.left/0.23.1920.1177@0.23.1920.1177" timestamp="1580137319487" />
+    <state width="1565" height="245" key="GridCell.Tab.0.right" timestamp="1580137319488">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143379" />
-    <state width="1565" height="245" key="GridCell.Tab.0.right/0.23.1920.1177@0.23.1920.1177" timestamp="1580135294297" />
-    <state x="633" y="580" key="ReplaceDuplicatesPrompt" timestamp="1579886121553">
-      <screen x="0" y="23" width="1920" height="1097" />
+    <state width="1565" height="245" key="GridCell.Tab.0.right/0.23.1920.1177@0.23.1920.1177" timestamp="1580137319488" />
+    <state x="633" y="621" key="ReplaceDuplicatesPrompt" timestamp="1580136770333">
+      <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state x="633" y="580" key="ReplaceDuplicatesPrompt/0.23.1920.1097@0.23.1920.1097" timestamp="1579886121553" />
+    <state x="633" y="621" key="ReplaceDuplicatesPrompt/0.23.1920.1177@0.23.1920.1177" timestamp="1580136770333" />
     <state x="341" y="141" key="SettingsEditor" timestamp="1579772898271">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
@@ -248,11 +250,12 @@
     </state>
     <state x="488" y="338" key="com.intellij.ide.util.TipDialog/0.23.1680.961@0.23.1680.961" timestamp="1579610017985" />
     <state x="488" y="339" key="com.intellij.ide.util.TipDialog/0.23.1680.963@0.23.1680.963" timestamp="1579707014695" />
-    <state x="857" y="396" width="558" height="482" key="extract.method.dialog" timestamp="1580117883300">
-      <screen x="0" y="23" width="1920" height="1097" />
+    <state x="857" y="423" width="558" height="482" key="extract.method.dialog" timestamp="1580137275451">
+      <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state x="750" y="347" key="extract.method.dialog/0.23.1680.952@0.23.1680.952" timestamp="1579855448817" />
     <state x="857" y="396" width="558" height="482" key="extract.method.dialog/0.23.1920.1097@0.23.1920.1097" timestamp="1580117883300" />
+    <state x="857" y="423" width="558" height="482" key="extract.method.dialog/0.23.1920.1177@0.23.1920.1177" timestamp="1580137275451" />
     <state x="602" y="268" key="refactoring.ChangeSignatureDialog" timestamp="1579884585222">
       <screen x="0" y="23" width="1920" height="1097" />
     </state>

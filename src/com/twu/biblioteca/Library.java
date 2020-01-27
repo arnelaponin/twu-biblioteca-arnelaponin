@@ -10,7 +10,7 @@ public class Library {
     Book book2 = new Book("The Value of Everything", "Mariana Mazzucato", "2018");
     Movie movie1 = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019");
     Movie movie2 = new Movie("Parasite", "Bong Joon-ho", "2019");
-    List<Book> books;
+    List<LibraryEntity> books;
     List<LibraryEntity> movies;
 
     public Library() {
@@ -23,10 +23,8 @@ public class Library {
         movies = Arrays.asList(movie1, movie2);
     }
 
-    public List<Book> getAvailableBooks() {
-        return books.stream()
-                .filter(Book::isAvailable)
-                .collect(Collectors.toList());
+    public List<LibraryEntity> getAvailableBooks() {
+        return getAvailableResources(books);
     }
 
     public List<LibraryEntity> getAvailableMovies() {
@@ -43,22 +41,20 @@ public class Library {
         return books.size();
     }
 
-    public boolean checkOutByName(String bookName) {
-        Book book = getBookByName(bookName);
-        if (book != null) {
-            book.checkOut();
+    public boolean checkOutBookByName(String bookName) {
+        return checkOutEntity(getEntityByName(bookName, books));
+    }
+
+    public boolean checkOutMovieByName(String movieName) {
+        return checkOutEntity(getEntityByName(movieName, movies));
+    }
+
+    private boolean checkOutEntity(LibraryEntity entity) {
+        if (entity != null) {
+            entity.checkOut();
             return true;
         }
         return false;
-    }
-
-    private Book getBookByName(String bookName) {
-        for (Book book: books) {
-            if (book.getTitle().equals(bookName)) {
-                return book;
-            }
-        }
-        return null;
     }
 
     private LibraryEntity getEntityByName(String name, List<LibraryEntity> entities) {
@@ -71,18 +67,9 @@ public class Library {
     }
 
     public boolean returnByName(String checkOutBookName) {
-        Book book = getBookByName(checkOutBookName);
+        Book book = (Book) getEntityByName(checkOutBookName, books);
         if (book != null && !book.isAvailable()) {
             book.makeAvailable();
-            return true;
-        }
-        return false;
-    }
-
-    public boolean checkOutMovieByName(String name) {
-        LibraryEntity entity = getEntityByName(name, movies);
-        if (entity != null) {
-            entity.checkOut();
             return true;
         }
         return false;

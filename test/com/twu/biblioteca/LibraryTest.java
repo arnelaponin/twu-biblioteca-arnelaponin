@@ -25,7 +25,7 @@ public class LibraryTest {
     @Test
     public void testLibraryHasMultipleBooksWithName() {
         Library lib = new Library();
-        List<Book> books = lib.getAvailableBooks();
+        List<LibraryEntity> books = lib.getAvailableBooks();
         assertEquals("Unquiet", books.get(0).getTitle());
         assertEquals("The Value of Everything", books.get(1).getTitle());
     }
@@ -33,7 +33,7 @@ public class LibraryTest {
     @Test
     public void testLibraryHasOneBookWithNameAuthorYear() {
         Library lib = new Library();
-        Book book = lib.getAvailableBooks().get(0);
+        Book book = (Book) lib.getAvailableBooks().get(0);
         assertEquals("Unquiet", book.getTitle());
         assertEquals("Linn Ullmann", book.getAuthor());
         assertEquals("2018", book.getYear());
@@ -42,9 +42,9 @@ public class LibraryTest {
     @Test
     public void testBookListWithCheckOutRemoved() {
         Library lib = new Library();
-        List<Book> books = lib.getAvailableBooks();
+        List<LibraryEntity> books = lib.getAvailableBooks();
         int originalBookCount = books.size();
-        Book book = books.get(0);
+        Book book = (Book) books.get(0);
         book.checkOut();
         int updatedBookCount = lib.getAvailableBooks().size();
         assertTrue(originalBookCount > updatedBookCount);
@@ -54,11 +54,11 @@ public class LibraryTest {
     public void testBookCheckOutByName() {
         Library library = new Library();
         String checkOutBookName = "Unquiet";
-        boolean checkOutStatus = library.checkOutByName(checkOutBookName);
+        boolean checkOutStatus = library.checkOutBookByName(checkOutBookName);
         assertTrue(checkOutStatus);
-        List<Book> books = library.getAvailableBooks();
+        List<LibraryEntity> books = library.getAvailableBooks();
         boolean bookInCollection = false;
-        for (Book book: books) {
+        for (LibraryEntity book: books) {
             if (book.getTitle().equals(checkOutBookName)) {
                 bookInCollection = true;
                 break;
@@ -71,7 +71,7 @@ public class LibraryTest {
     public void testBookCheckOutByIncorrectName() {
         Library library = new Library();
         String incorrectBookName = "Unquie";
-        boolean checkOutStatus = library.checkOutByName(incorrectBookName);
+        boolean checkOutStatus = library.checkOutBookByName(incorrectBookName);
         assertFalse(checkOutStatus);
 
     }
@@ -80,12 +80,12 @@ public class LibraryTest {
     public void testBookReturnByName() {
         Library library = new Library();
         String checkOutBookName = "Unquiet";
-        boolean checkOutStatus = library.checkOutByName(checkOutBookName);
+        boolean checkOutStatus = library.checkOutBookByName(checkOutBookName);
         boolean returnStatus = library.returnByName(checkOutBookName);
         assertTrue(returnStatus);
-        List<Book> books = library.getAvailableBooks();
+        List<LibraryEntity> books = library.getAvailableBooks();
         boolean bookInCollection = false;
-        for (Book book: books) {
+        for (LibraryEntity book: books) {
             if (book.getTitle().equals(checkOutBookName)) {
                 bookInCollection = true;
                 break;
