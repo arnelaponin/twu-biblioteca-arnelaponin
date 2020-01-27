@@ -69,7 +69,7 @@ public class Menu {
             quitApplication();
         } else if (optionNr == MenuOption.valueOf("LIST_MOVIES").getCode()) {
             presentAvailableMovies();
-        } else if (optionNr == 5) {
+        } else if (optionNr == MenuOption.valueOf("CHECKOUT_MOVIE").getCode()) {
             movieCheckOutProcess();
         }
     }
