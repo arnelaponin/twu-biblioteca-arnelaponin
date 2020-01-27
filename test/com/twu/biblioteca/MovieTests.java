@@ -63,4 +63,11 @@ public class MovieTests {
     public void shouldNotHaveRating0dWhenRatingSet() throws RatingRangeException {
         movie.setRating(0);
     }
+
+    @Test
+    public void testMovieCheckOut() {
+        Movie movie = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019");
+        movie.checkOut();
+        assertFalse(movie.isAvailable());
+    }
 }

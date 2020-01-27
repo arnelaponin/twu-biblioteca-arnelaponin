@@ -5,4 +5,5 @@ interface LibraryEntity {
     String getTitle();
     String getYear();
     boolean isAvailable();
+    void checkOut();
 }

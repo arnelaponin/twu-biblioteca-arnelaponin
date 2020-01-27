@@ -40,6 +40,11 @@ public class Movie implements LibraryEntity {
     }
 
     @Override
+    public void checkOut() {
+        status = false;
+    }
+
+    @Override
     public String toString() {
         if (rating == 0) {
             return '\'' + name + "', by " + director + ", (" + year + "), unrated";
