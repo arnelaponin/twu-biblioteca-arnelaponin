@@ -13,7 +13,12 @@ public class Menu {
     private final PrintStream printStream;
     private final BufferedReader reader;
     private Library library;
-    private List<MenuOption> options = Arrays.asList(MenuOption.LIST, MenuOption.CHECKOUT, MenuOption.RETURN, MenuOption.QUIT);
+    private List<MenuOption> options = Arrays.asList(
+            MenuOption.LIST,
+            MenuOption.CHECKOUT,
+            MenuOption.RETURN,
+            MenuOption.QUIT,
+            MenuOption.LIST_MOVIES);
 
     public Menu(PrintStream printstream, BufferedReader reader, Library library) {
         this.printStream = printstream;
@@ -62,7 +67,7 @@ public class Menu {
             returnProcess();
         } else if (optionNr == MenuOption.valueOf("QUIT").getCode()) { //This option is not tested.
             quitApplication();
-        } else if (optionNr == 4) {
+        } else if (optionNr == MenuOption.valueOf("LIST_MOVIES").getCode()) {
             presentAvailableMovies();
         }
     }
