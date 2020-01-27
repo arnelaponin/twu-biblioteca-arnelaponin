@@ -18,7 +18,8 @@ public class Menu {
             MenuOption.CHECKOUT,
             MenuOption.RETURN,
             MenuOption.QUIT,
-            MenuOption.LIST_MOVIES);
+            MenuOption.LIST_MOVIES,
+            MenuOption.CHECKOUT_MOVIE);
 
     public Menu(PrintStream printstream, BufferedReader reader, Library library) {
         this.printStream = printstream;
