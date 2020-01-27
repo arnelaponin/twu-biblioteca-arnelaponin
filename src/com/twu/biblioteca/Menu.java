@@ -38,7 +38,6 @@ public class Menu {
         System.exit(0);
     }
 
-    //No tested properly
     public boolean isOptionSelectionValid(int optionNr) {
         boolean isValidResponse = false;
         Set<Integer> set = new HashSet<>();
@@ -94,10 +93,30 @@ public class Menu {
 
     private void presentAvailableBooks() {
         List<Book> books = library.getAvailableBooks();
-        StringBuilder stringBuilder = new StringBuilder("All the available books:\n");
+        StringBuilder stringBuilder = new StringBuilder("All the available books:");
+        stringBuilder.append("\n");
         for (Book book : books) {
             stringBuilder.append(book).append("\n");
         }
         printStream.println(stringBuilder.toString());
+    }
+
+    public void start() {
+        int optionNr = 0;
+        boolean isValidResponse = false;
+        do {
+            printStream.println("Select an option number:");
+            try {
+                optionNr = Integer.parseInt(reader.readLine());
+                isValidResponse = isOptionSelectionValid(optionNr);
+                if (isValidResponse) {
+                    selectOperation(optionNr);
+                }
+                isValidResponse = false;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } while (!isValidResponse);
+
     }
 }

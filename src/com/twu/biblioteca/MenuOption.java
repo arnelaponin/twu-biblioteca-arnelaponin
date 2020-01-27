@@ -22,12 +22,4 @@ public enum MenuOption {
     public int getCode() {
         return code;
     }
-
-    @Override
-    public String toString() {
-        return "MenuOption{" +
-                "name='" + name + '\'' +
-                ", code=" + code +
-                '}';
-    }
 }
