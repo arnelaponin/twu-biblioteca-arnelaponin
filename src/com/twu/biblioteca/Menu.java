@@ -69,6 +69,15 @@ public class Menu {
             quitApplication();
         } else if (optionNr == MenuOption.valueOf("LIST_MOVIES").getCode()) {
             presentAvailableMovies();
+        } else if (optionNr == 5) {
+            presentAvailableMovies();
+            String movieName = getMovieNameFromInput();
+            boolean checkOutStatus = library.checkOutMovieByName(movieName);
+            if (checkOutStatus) {
+                printStream.println("Thank you! Enjoy the movie.");
+            } else {
+                printStream.println("Sorry, that movie is not available.");
+            }
         }
     }
 
@@ -95,6 +104,11 @@ public class Menu {
 
     private String getBookNameFromInput() throws IOException {
         printStream.println("Write the name of the book:");
+        return reader.readLine();
+    }
+
+    private String getMovieNameFromInput() throws IOException {
+        printStream.println("Write the name of the movie:");
         return reader.readLine();
     }
 

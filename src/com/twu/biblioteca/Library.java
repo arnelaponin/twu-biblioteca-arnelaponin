@@ -61,10 +61,28 @@ public class Library {
         return null;
     }
 
+    private LibraryEntity getEntityByName(String name, List<LibraryEntity> entities) {
+        for (LibraryEntity entity: entities) {
+            if (entity.getTitle().equals(name)) {
+                return entity;
+            }
+        }
+        return null;
+    }
+
     public boolean returnByName(String checkOutBookName) {
         Book book = getBookByName(checkOutBookName);
         if (book != null && !book.isAvailable()) {
             book.makeAvailable();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkOutMovieByName(String name) {
+        LibraryEntity entity = getEntityByName(name, movies);
+        if (entity != null) {
+            entity.checkOut();
             return true;
         }
         return false;

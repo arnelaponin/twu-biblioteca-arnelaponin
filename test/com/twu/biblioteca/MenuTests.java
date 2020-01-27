@@ -176,4 +176,32 @@ public class MenuTests {
         menu.selectOperation(optionNr);
         verify(printStream).println("This is not a valid book to return.");
     }
+
+    @Test
+    public void shouldStartMovieCheckOutProcessWhenOption5Selected() throws IOException {
+        Library mockedLibrary = mock(Library.class);
+        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        when(reader.readLine()).thenReturn("Parasite");
+        int optionNr = 5;
+        menu.selectOperation(optionNr);
+        verify(mockedLibrary).checkOutMovieByName("Parasite");
+    }
+
+    @Test
+    public void shouldNotifyOfSuccessWhenMovieCheckedOutSuccessfully() throws IOException {
+        Menu menu = new Menu(printStream, reader, library);
+        when(reader.readLine()).thenReturn("Parasite");
+        int optionNr = 5;
+        menu.selectOperation(optionNr);
+        verify(printStream).println("Thank you! Enjoy the movie.");
+    }
+
+    @Test
+    public void shouldNotifyOfFailureWhenMovieNotCheckedOut() throws IOException {
+        Menu menu = new Menu(printStream, reader, library);
+        when(reader.readLine()).thenReturn("Movie X");
+        int optionNr = 5;
+        menu.selectOperation(optionNr);
+        verify(printStream).println("Sorry, that movie is not available.");
+    }
 }
