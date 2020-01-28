@@ -59,6 +59,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuthorizationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.exceptions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.AuthorizationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthorizationTests.shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.AuthorizationTests" />
+      <option name="METHOD_NAME" value="shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthorizationTests.shouldSetLibraryCurrentUserAfterAuthentication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.exceptions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.AuthorizationTests" />
+      <option name="METHOD_NAME" value="shouldSetLibraryCurrentUserAfterAuthentication" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LibraryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -70,53 +117,6 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MenuUserTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.exceptions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuUserTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MenuUserTests.shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuUserTests" />
-      <option name="METHOD_NAME" value="shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MenuUserTests.shouldSetLibraryCurrentUserAfterAuthentication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.exceptions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuUserTests" />
-      <option name="METHOD_NAME" value="shouldSetLibraryCurrentUserAfterAuthentication" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,18 +138,18 @@
     <list>
       <item itemvalue="Application.BibliotecaApp" />
       <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
-      <item itemvalue="JUnit.MenuUserTests" />
-      <item itemvalue="JUnit.MenuUserTests.shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" />
-      <item itemvalue="JUnit.MenuUserTests.shouldSetLibraryCurrentUserAfterAuthentication" />
       <item itemvalue="JUnit.LibraryTest" />
+      <item itemvalue="JUnit.AuthorizationTests" />
+      <item itemvalue="JUnit.AuthorizationTests.shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" />
+      <item itemvalue="JUnit.AuthorizationTests.shouldSetLibraryCurrentUserAfterAuthentication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.LibraryTest" />
-        <item itemvalue="JUnit.MenuUserTests.shouldSetLibraryCurrentUserAfterAuthentication" />
-        <item itemvalue="JUnit.MenuUserTests" />
+        <item itemvalue="JUnit.AuthorizationTests.shouldSetLibraryCurrentUserAfterAuthentication" />
+        <item itemvalue="JUnit.AuthorizationTests" />
         <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
-        <item itemvalue="JUnit.MenuUserTests.shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" />
+        <item itemvalue="JUnit.AuthorizationTests.shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect" />
       </list>
     </recent_temporary>
   </component>

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 
-public class MenuUserTests {
+public class AuthorizationTests {
 
     private PrintStream printStream;
     private Library library;
