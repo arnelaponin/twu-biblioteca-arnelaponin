@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.exceptions.IncorrectCredentialsException;
+import com.twu.biblioteca.exceptions.IncorrectLibraryNumberFormat;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,9 +40,16 @@ public class MenuUserTests {
     }
 
     @Test
-    public void shouldFindUserWhenLibraryNumberAndPasswordInputted() throws IncorrectLibraryNumberFormat {
+    public void shouldFindUserWhenLibraryNumberAndPasswordInputted() throws IncorrectLibraryNumberFormat, IncorrectCredentialsException {
         AuthenticationService auth = new AuthenticationServiceImpl();
         boolean userExists = auth.userExists("123-4567", "test1234");
         assertThat(userExists, is(true));
+    }
+
+    @Test(expected = IncorrectCredentialsException.class)
+    public void shouldGiveExceptionWhenIncorrectLibraryNumberAndPasswordInputted() throws IncorrectLibraryNumberFormat, IncorrectCredentialsException {
+        AuthenticationService auth = new AuthenticationServiceImpl();
+        boolean userExists = auth.userExists("11", "test1234");
+
     }
 }

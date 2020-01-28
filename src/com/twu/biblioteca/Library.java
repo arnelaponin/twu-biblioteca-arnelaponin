@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.exceptions.RatingRangeException;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

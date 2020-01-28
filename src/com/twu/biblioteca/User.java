@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.exceptions.IncorrectLibraryNumberFormat;
+
 public class User {
 
     String libraryNumber;

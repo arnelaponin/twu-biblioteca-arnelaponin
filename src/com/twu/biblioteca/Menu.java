@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.exceptions.IncorrectCredentialsException;
+import com.twu.biblioteca.exceptions.IncorrectLibraryNumberFormat;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -168,6 +171,10 @@ public class Menu {
         String libraryNumber = reader.readLine();
         printStream.println(Prompt.PLEASE_WRITE_YOUR_PASSSWORD);
         String password = reader.readLine();
-        boolean userExists = auth.userExists(libraryNumber, password);
+        try {
+            boolean userExists = auth.userExists(libraryNumber, password);
+        } catch (IncorrectCredentialsException e) {
+            e.printStackTrace();
+        }
     }
 }

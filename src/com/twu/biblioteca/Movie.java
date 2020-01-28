@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.exceptions.RatingRangeException;
+
 public class Movie implements LibraryEntity {
 
     private String name;

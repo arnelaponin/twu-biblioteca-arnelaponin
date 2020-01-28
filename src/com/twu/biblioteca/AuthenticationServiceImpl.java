@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.exceptions.IncorrectCredentialsException;
+import com.twu.biblioteca.exceptions.IncorrectLibraryNumberFormat;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +17,7 @@ public class AuthenticationServiceImpl implements AuthenticationService{
     }
 
     @Override
-    public boolean userExists(String libraryNumber, String password) {
+    public boolean userExists(String libraryNumber, String password) throws IncorrectCredentialsException {
         for (User user: users) {
             if (libraryNumber.equals(user.getLibraryNumber())) {
                 if (password.equals(user.getPassword())) {
@@ -22,6 +25,6 @@ public class AuthenticationServiceImpl implements AuthenticationService{
                 }
             }
         }
-        return false;
+        throw new IncorrectCredentialsException("Library number and/or password were incorrect.");
     }
 }
