@@ -3,8 +3,10 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
@@ -115,5 +117,23 @@ public class LibraryTest {
         Library library = new Library();
         List<LibraryEntity> movies = library.getAvailableMovies();
         assertTrue(movies.size() > 0);
+    }
+
+    @Test
+    public void shouldSeeNoReservationWhenNoneHaveBeenMade() {
+        Library library = new Library();
+        List<Reservation> reservations = library.getReservations();
+        assertTrue(reservations.isEmpty());
+    }
+
+    @Test
+    public void shouldSeeReservationWhenBookIsCheckedOut() {
+        Library library = new Library();
+        String checkOutBookName = "Unquiet";
+        boolean checkOutStatus = library.checkOutBookByName(checkOutBookName);
+        assertTrue(checkOutStatus);
+        List<Reservation> reservations = library.getReservations();
+        assertThat(reservations.size(), is(1));
+        assertThat(reservations.get(0).getLibraryEntity().getTitle(), is("Unquiet"));
     }
 }

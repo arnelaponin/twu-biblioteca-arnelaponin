@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.exceptions.RatingRangeException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +16,7 @@ public class Library {
     List<LibraryEntity> books;
     List<LibraryEntity> movies;
     User currentUser;
+    List<Reservation> reservations;
 
     public Library() {
         try {
@@ -24,6 +26,7 @@ public class Library {
         }
         books = Arrays.asList(book1, book2);
         movies = Arrays.asList(movie1, movie2);
+        reservations = new ArrayList<>();
     }
 
     public List<LibraryEntity> getAvailableBooks() {
@@ -55,6 +58,7 @@ public class Library {
     private boolean checkOutEntity(LibraryEntity entity) {
         if (entity != null) {
             entity.checkOut();
+            createReservation(entity);
             return true;
         }
         return false;
@@ -80,5 +84,14 @@ public class Library {
 
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void createReservation(LibraryEntity libraryEntity) {
+        Reservation reservation = new Reservation(libraryEntity, currentUser);
+        reservations.add(reservation);
     }
 }
