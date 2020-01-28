@@ -167,14 +167,21 @@ public class Menu {
     }
 
     public void getUserLibraryNumberAndPassword() throws IOException {
-        printStream.println(Prompt.PLEASE_WRITE_YOUR_LIBRARY_NUMBER);
-        String libraryNumber = reader.readLine();
-        printStream.println(Prompt.PLEASE_WRITE_YOUR_PASSSWORD);
-        String password = reader.readLine();
-        try {
-            boolean userExists = auth.userExists(libraryNumber, password);
-        } catch (IncorrectCredentialsException e) {
-            e.printStackTrace();
-        }
+        boolean userSet = false;
+        do {
+            String libraryNumber = getCredentialInput(Prompt.PLEASE_WRITE_YOUR_LIBRARY_NUMBER);
+            String password = getCredentialInput(Prompt.PLEASE_WRITE_YOUR_PASSSWORD);
+            try {
+                userSet = auth.userExists(libraryNumber, password);
+            } catch (IncorrectCredentialsException e) {
+                printStream.println(e.getMessage());
+            }
+        } while (!userSet);
+
+    }
+
+    private String getCredentialInput(String pleaseWriteYourLibraryNumber) throws IOException {
+        printStream.println(pleaseWriteYourLibraryNumber);
+        return reader.readLine();
     }
 }

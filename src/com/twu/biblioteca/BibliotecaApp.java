@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
@@ -13,6 +14,11 @@ public class BibliotecaApp {
         printStream.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         Library library = new Library();
         Menu menu = new Menu(printStream, reader, library);
+        try {
+            menu.getUserLibraryNumberAndPassword();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         printStream.println(menu.printAllOptions());
         menu.start();
     }
