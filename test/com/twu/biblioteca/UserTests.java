@@ -32,4 +32,22 @@ public class UserTests {
     public void shouldNotCreateUserWhenLibraryNumberIsWithIncorrectFormat() throws IncorrectLibraryNumberFormat {
         User falseUser = new User("12-4567", "test1234");
     }
+
+    @Test
+    public void shouldBeAbleToSetNameAfterCreation() {
+        user.setName("Arne Laponin");
+        assertThat(user.getName(), is("Arne Laponin"));
+    }
+
+    @Test
+    public void shouldBeAbleToSetEmailAfterCreation() {
+        user.setEmail("arne.laponin@thoughtworks.com");
+        assertThat(user.getEmail(), is("arne.laponin@thoughtworks.com"));
+    }
+
+    @Test
+    public void shouldBeAbleToSetPhoneAfterCreation() {
+        user.setPhone("+34 123 4567");
+        assertThat(user.getPhone(), is("+34 123 4567"));
+    }
 }
