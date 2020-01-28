@@ -35,7 +35,7 @@ public class ReservationTests {
     @Test
     public void shouldPrintInUserFriendlyWayCreated() {
         Reservation reservation = new Reservation(book1, user);
-        String expectedResult = "Unquiet - 123-4567";
+        String expectedResult = "Unquiet - rented by: 123-4567";
         assertThat(reservation.toString(), is(expectedResult));
     }
 }
