@@ -177,7 +177,7 @@ public class Menu {
                 printStream.println(e.getMessage());
             }
         } while (!userSet);
-
+        library.setCurrentUser(auth.getCurrentUser());
     }
 
     private String getCredentialInput(String pleaseWriteYourLibraryNumber) throws IOException {

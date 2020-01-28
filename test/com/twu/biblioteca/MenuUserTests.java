@@ -75,4 +75,16 @@ public class MenuUserTests {
         }
 
     }
+
+    @Test
+    public void shouldSetLibraryCurrentUserAfterAuthentication() throws IOException {
+        Menu menu = new Menu(printStream, reader, library);
+        when(reader.readLine()).thenReturn("123-4567").thenReturn("test1234");
+        try {
+            menu.getUserLibraryNumberAndPassword();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assertThat(library.currentUser.getLibraryNumber(), is("123-4567"));
+    }
 }

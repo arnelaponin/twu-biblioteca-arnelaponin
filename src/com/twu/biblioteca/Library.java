@@ -14,6 +14,7 @@ public class Library {
     Movie movie2 = new Movie("Parasite", "Bong Joon-ho", "2019");
     List<LibraryEntity> books;
     List<LibraryEntity> movies;
+    User currentUser;
 
     public Library() {
         try {
@@ -75,5 +76,9 @@ public class Library {
             return true;
         }
         return false;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 }
