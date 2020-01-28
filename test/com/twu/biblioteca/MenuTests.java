@@ -59,7 +59,7 @@ public class MenuTests {
     @Test
     public void testInvalidMenuOption() {
         Menu menu = new Menu(printStream, reader, library);
-        boolean isValid = menu.isOptionSelectionValid(5);
+        boolean isValid = menu.isOptionSelectionValid(100);
         assertFalse(isValid);
     }
 
