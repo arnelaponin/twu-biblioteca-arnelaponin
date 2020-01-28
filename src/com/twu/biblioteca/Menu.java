@@ -20,11 +20,17 @@ public class Menu {
             MenuOption.QUIT,
             MenuOption.LIST_MOVIES,
             MenuOption.CHECKOUT_MOVIE);
+    AuthenticationService auth;
 
     public Menu(PrintStream printstream, BufferedReader reader, Library library) {
         this.printStream = printstream;
         this.reader = reader;
         this.library = library;
+        try {
+            auth = new AuthenticationServiceImpl();
+        } catch (IncorrectLibraryNumberFormat incorrectLibraryNumberFormat) {
+            incorrectLibraryNumberFormat.printStackTrace();
+        }
     }
 
     public String printAllOptions() {
@@ -155,5 +161,13 @@ public class Menu {
             }
         } while (!isValidResponse);
 
+    }
+
+    public void getUserLibraryNumberAndPassword() throws IOException {
+        printStream.println(Prompt.PLEASE_WRITE_YOUR_LIBRARY_NUMBER);
+        String libraryNumber = reader.readLine();
+        printStream.println(Prompt.PLEASE_WRITE_YOUR_PASSSWORD);
+        String password = reader.readLine();
+        boolean userExists = auth.userExists(libraryNumber, password);
     }
 }
