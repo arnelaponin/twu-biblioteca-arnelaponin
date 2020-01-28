@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.exceptions.IncorrectCredentialsException;
 import com.twu.biblioteca.exceptions.IncorrectLibraryNumberFormat;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -50,6 +52,27 @@ public class MenuUserTests {
     public void shouldGiveExceptionWhenIncorrectLibraryNumberAndPasswordInputted() throws IncorrectLibraryNumberFormat, IncorrectCredentialsException {
         AuthenticationService auth = new AuthenticationServiceImpl();
         boolean userExists = auth.userExists("11", "test1234");
+    }
+
+    @Test
+    public void shouldSetCurrentUserWhenLibraryNumberAndPasswordAreCorrect() throws IncorrectLibraryNumberFormat, IncorrectCredentialsException {
+        AuthenticationService auth = new AuthenticationServiceImpl();
+        boolean userExists = auth.userExists("123-4567", "test1234");
+        assertThat(userExists, is(true));
+        User currentUser = auth.getCurrentUser();
+        assertThat(currentUser.getLibraryNumber(), is("123-4567"));
+        auth.removeCurrentUser();
+    }
+
+    @Test
+    public void shouldNotSetCurrentUserWhenLibraryNumberAndPasswordAreIncorrect() throws IncorrectLibraryNumberFormat {
+        AuthenticationService auth = new AuthenticationServiceImpl();
+        try {
+            auth.userExists("123-4567890", "test1234");
+        } catch (IncorrectCredentialsException e) {
+            User currentUser = auth.getCurrentUser();
+            assertNull(currentUser);
+        }
 
     }
 }
