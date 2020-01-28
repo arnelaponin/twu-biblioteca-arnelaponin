@@ -7,7 +7,8 @@ public enum MenuOption {
     RETURN("Return a book", 2),
     QUIT("Quit", 3),
     LIST_MOVIES("List of Movies", 4),
-    CHECKOUT_MOVIE("Check out a movie", 5);
+    CHECKOUT_MOVIE("Check out a movie", 5),
+    LIST_RESERVATION("List reservations", 6);
 
     private final String name;
     private final int code;

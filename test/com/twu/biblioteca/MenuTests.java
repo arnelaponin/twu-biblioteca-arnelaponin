@@ -205,4 +205,13 @@ public class MenuTests {
         menu.selectOperation(optionNr);
         verify(printStream).println("Sorry, that movie is not available.");
     }
+
+    @Test
+    public void shouldStartReservationListProcessWhenOption6Selected() throws IOException {
+        Library mockedLibrary = mock(Library.class);
+        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        int optionNr = 6;
+        menu.selectOperation(optionNr);
+        verify(mockedLibrary).getReservations();
+    }
 }

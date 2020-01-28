@@ -22,7 +22,8 @@ public class Menu {
             MenuOption.RETURN,
             MenuOption.QUIT,
             MenuOption.LIST_MOVIES,
-            MenuOption.CHECKOUT_MOVIE);
+            MenuOption.CHECKOUT_MOVIE,
+            MenuOption.LIST_RESERVATION);
     AuthenticationService auth;
 
     public Menu(PrintStream printstream, BufferedReader reader, Library library) {
@@ -81,6 +82,15 @@ public class Menu {
             presentAvailableMovies();
         } else if (optionNr == MenuOption.valueOf("CHECKOUT_MOVIE").getCode()) {
             movieCheckOutProcess();
+        } else if (optionNr == MenuOption.valueOf("LIST_RESERVATION").getCode()) {
+            presentReservations();
+        }
+    }
+
+    private void presentReservations() {
+        List<Reservation> reservations = library.getReservations();
+        for (Reservation reservation: reservations) {
+            printStream.println(reservation);
         }
     }
 

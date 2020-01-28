@@ -17,4 +17,9 @@ public class Reservation {
     public User getUser() {
         return user;
     }
+
+    @Override
+    public String toString() {
+        return libraryEntity.getTitle() + " - " + user.getLibraryNumber();
+    }
 }
