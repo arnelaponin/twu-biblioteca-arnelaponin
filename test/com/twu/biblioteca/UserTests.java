@@ -50,4 +50,30 @@ public class UserTests {
         User newUser = new User.UserBuilder("123-4567", "test1234").setPhone("+34 123 4567").build();
         assertThat(newUser.getPhone(), is("+34 123 4567"));
     }
+
+    @Test
+    public void shouldPrintAllUserData() throws IncorrectLibraryNumberFormat {
+        User newUser = new User.UserBuilder("111-1111", "test1234")
+                .setName("Sara McGregor")
+                .setEmail("sara.mcgregor@thoughtworks.com")
+                .setPhone("+34 765 4321").build();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Library number: ").append(newUser.getLibraryNumber()).append("\n");
+        sb.append("Name: ").append(newUser.getName()).append("\n");
+        sb.append("Email: ").append(newUser.getEmail()).append("\n");
+        sb.append("Phone: ").append(newUser.getPhone());
+        assertThat(newUser.toString(), is(sb.toString()));
+    }
+
+    @Test
+    public void shouldPrintUserDataWithSOmeFieldsMissing() throws IncorrectLibraryNumberFormat {
+        User newUser = new User.UserBuilder("111-1111", "test1234")
+                .setName("Sara McGregor").build();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Library number: ").append(newUser.getLibraryNumber()).append("\n");
+        sb.append("Name: ").append(newUser.getName()).append("\n");
+        sb.append("Email: ").append("-").append("\n");
+        sb.append("Phone: ").append("-");
+        assertThat(newUser.toString(), is(sb.toString()));
+    }
 }

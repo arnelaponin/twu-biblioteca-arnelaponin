@@ -55,6 +55,17 @@ public class User {
         return phone;
     }
 
+    @Override
+    public String toString() {
+        String name = this.getName() == null ? "-" : this.getName();
+        String email = this.getEmail() == null ? "-" : this.getEmail();
+        String phone = this.getPhone() == null ? "-" : this.getPhone();
+        return "Library number: " + this.getLibraryNumber() + "\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Phone: " + phone;
+    }
+
     public static class UserBuilder {
         //required
         private String libraryNumber;
