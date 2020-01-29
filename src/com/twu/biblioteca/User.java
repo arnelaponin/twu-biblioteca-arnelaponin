@@ -4,11 +4,13 @@ import com.twu.biblioteca.exceptions.IncorrectLibraryNumberFormat;
 
 public class User {
 
-    String libraryNumber;
-    String password;
-    String name;
-    String email;
-    String phone;
+    //required
+    private String libraryNumber;
+    private String password;
+    //optional
+    private String name;
+    private String email;
+    private String phone;
 
     public User(String libraryNumber, String password) throws IncorrectLibraryNumberFormat {
         if (checkLibraryNumberFormat(libraryNumber)) {
@@ -18,6 +20,14 @@ public class User {
         }
 
         this.password = password;
+    }
+
+    private User(UserBuilder builder) {
+        this.libraryNumber = builder.libraryNumber;
+        this.password = builder.password;
+        this.name = builder.name;
+        this.email = builder.email;
+        this.phone = builder.phone;
     }
 
     public String getLibraryNumber() {
@@ -37,23 +47,45 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public static class UserBuilder {
+        //required
+        private String libraryNumber;
+        private String password;
+        //optional
+        private String name;
+        private String email;
+        private String phone;
+
+        public UserBuilder(String libraryNumber, String password) {
+            this.libraryNumber = libraryNumber;
+            this.password = password;
+        }
+
+        public UserBuilder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public UserBuilder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public UserBuilder setPhone(String phone) {
+            this.phone = phone;
+            return this;
+        }
+
+        public User build() throws IncorrectLibraryNumberFormat {
+            return new User(this);
+        }
     }
 }

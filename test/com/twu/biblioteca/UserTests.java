@@ -34,20 +34,20 @@ public class UserTests {
     }
 
     @Test
-    public void shouldBeAbleToSetNameAfterCreation() {
-        user.setName("Arne Laponin");
-        assertThat(user.getName(), is("Arne Laponin"));
+    public void shouldBeAbleToSetNameAfterCreation() throws IncorrectLibraryNumberFormat {
+        User newUser = new User.UserBuilder("123-4567", "test1234").setName("Arne Laponin").build();
+        assertThat(newUser.getName(), is("Arne Laponin"));
     }
 
     @Test
-    public void shouldBeAbleToSetEmailAfterCreation() {
-        user.setEmail("arne.laponin@thoughtworks.com");
-        assertThat(user.getEmail(), is("arne.laponin@thoughtworks.com"));
+    public void shouldBeAbleToSetEmailAfterCreation() throws IncorrectLibraryNumberFormat {
+        User newUser = new User.UserBuilder("123-4567", "test1234").setEmail("arne.laponin@thoughtworks.com").build();
+        assertThat(newUser.getEmail(), is("arne.laponin@thoughtworks.com"));
     }
 
     @Test
-    public void shouldBeAbleToSetPhoneAfterCreation() {
-        user.setPhone("+34 123 4567");
-        assertThat(user.getPhone(), is("+34 123 4567"));
+    public void shouldBeAbleToSetPhoneAfterCreation() throws IncorrectLibraryNumberFormat {
+        User newUser = new User.UserBuilder("123-4567", "test1234").setPhone("+34 123 4567").build();
+        assertThat(newUser.getPhone(), is("+34 123 4567"));
     }
 }
