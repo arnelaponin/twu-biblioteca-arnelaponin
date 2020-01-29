@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="960d6684-feba-4081-80b3-5adadcbafe49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +52,7 @@
       <recent name="com.twu.biblioteca" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MenuTests">
+  <component name="RunManager" selected="JUnit.All in biblioteca">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -137,8 +137,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MenuTests" />
         <item itemvalue="JUnit.All in biblioteca" />
+        <item itemvalue="JUnit.MenuTests" />
         <item itemvalue="JUnit.UserTests" />
         <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
         <item itemvalue="JUnit.ReservationTests" />
@@ -168,7 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579610013850</updated>
       <workItem from="1579610016696" duration="20805000" />
-      <workItem from="1579707012975" duration="85280000" />
+      <workItem from="1579707012975" duration="85487000" />
     </task>
     <servers />
   </component>
@@ -199,34 +199,34 @@
       <screen x="0" y="23" width="1680" height="961" />
     </state>
     <state x="672" y="401" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.961@0.23.1680.961" timestamp="1579610057138" />
-    <state width="1627" height="353" key="GridCell.Tab.0.bottom" timestamp="1580297529574">
+    <state width="1627" height="353" key="GridCell.Tab.0.bottom" timestamp="1580298083142">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
     <state width="1358" height="245" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143379" />
-    <state width="1627" height="353" key="GridCell.Tab.0.bottom/0.23.1920.1177@0.23.1920.1177" timestamp="1580297529574" />
-    <state width="1627" height="353" key="GridCell.Tab.0.center" timestamp="1580297529573">
+    <state width="1627" height="353" key="GridCell.Tab.0.bottom/0.23.1920.1177@0.23.1920.1177" timestamp="1580298083142" />
+    <state width="1627" height="353" key="GridCell.Tab.0.center" timestamp="1580298083142">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
     <state width="1358" height="245" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143378" />
-    <state width="1627" height="353" key="GridCell.Tab.0.center/0.23.1920.1177@0.23.1920.1177" timestamp="1580297529573" />
-    <state width="1627" height="353" key="GridCell.Tab.0.left" timestamp="1580297529572">
+    <state width="1627" height="353" key="GridCell.Tab.0.center/0.23.1920.1177@0.23.1920.1177" timestamp="1580298083142" />
+    <state width="1627" height="353" key="GridCell.Tab.0.left" timestamp="1580298083141">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1579707255303" />
     <state width="1358" height="245" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143378" />
-    <state width="1627" height="353" key="GridCell.Tab.0.left/0.23.1920.1177@0.23.1920.1177" timestamp="1580297529572" />
-    <state width="1627" height="353" key="GridCell.Tab.0.right" timestamp="1580297529573">
+    <state width="1627" height="353" key="GridCell.Tab.0.left/0.23.1920.1177@0.23.1920.1177" timestamp="1580298083141" />
+    <state width="1627" height="353" key="GridCell.Tab.0.right" timestamp="1580298083142">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1579880437751" />
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1579707255304" />
     <state width="1358" height="245" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1580126143379" />
-    <state width="1627" height="353" key="GridCell.Tab.0.right/0.23.1920.1177@0.23.1920.1177" timestamp="1580297529573" />
+    <state width="1627" height="353" key="GridCell.Tab.0.right/0.23.1920.1177@0.23.1920.1177" timestamp="1580298083142" />
     <state width="1627" height="397" key="GridCell.Tab.1.bottom" timestamp="1580295967143">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
