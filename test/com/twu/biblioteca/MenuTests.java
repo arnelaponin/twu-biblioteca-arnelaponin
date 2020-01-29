@@ -217,4 +217,17 @@ public class MenuTests {
         menu.selectOperation(optionNr);
         verify(mockedLibrary).getReservations();
     }
+
+    @Test
+    public void shouldStartUserInfoProcessWhenOption7Selected() throws IOException, IncorrectLibraryNumberFormat {
+        Library mockedLibrary = mock(Library.class);
+        Menu menu = new Menu(printStream, reader, mockedLibrary, auth);
+        User newUser = new User.UserBuilder("111-1111", "test1234")
+                .setName("Sara McGregor").build();
+        when(auth.getCurrentUser()).thenReturn(newUser);
+        menu.setLibraryUser();
+        int optionNr = 7;
+        menu.selectOperation(optionNr);
+        verify(printStream).println(auth.getCurrentUser());
+    }
 }

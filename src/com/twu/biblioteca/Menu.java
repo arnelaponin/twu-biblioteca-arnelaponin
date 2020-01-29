@@ -23,7 +23,8 @@ public class Menu {
             MenuOption.QUIT,
             MenuOption.LIST_MOVIES,
             MenuOption.CHECKOUT_MOVIE,
-            MenuOption.LIST_RESERVATION);
+            MenuOption.LIST_RESERVATION,
+            MenuOption.INFORMATION);
     AuthenticationService auth;
 
     public Menu(PrintStream printstream, BufferedReader reader, Library library, AuthenticationService auth) {
@@ -80,6 +81,8 @@ public class Menu {
             movieCheckOutProcess();
         } else if (optionNr == MenuOption.valueOf("LIST_RESERVATION").getCode()) {
             presentReservations();
+        } else if (optionNr == MenuOption.valueOf("INFORMATION").getCode()) {
+            printStream.println(auth.getCurrentUser());
         }
     }
 
