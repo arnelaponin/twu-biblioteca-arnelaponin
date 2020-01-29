@@ -10,8 +10,14 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 
     User currentUser;
     final List<User> users = Arrays.asList(
-            new User ("123-4567", "test1234"),
-            new User ("111-1111", "test1234")
+            new User.UserBuilder("123-4567", "test1234")
+                    .setName("Arne Laponin")
+                    .setEmail("arne.laponin@thoughtworks.com")
+                    .setPhone("+34 123 4567").build(),
+            new User.UserBuilder("111-1111", "test1234")
+                    .setName("Sara McGregor")
+                    .setEmail("sara.mcgregor@thoughtworks.com")
+                    .setPhone("+34 765 4321").build()
     );
 
     public AuthenticationServiceImpl() throws IncorrectLibraryNumberFormat {
