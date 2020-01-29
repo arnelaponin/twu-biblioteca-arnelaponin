@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.exceptions.IncorrectLibraryNumberFormat;
 import com.twu.biblioteca.exceptions.RatingRangeException;
 import org.junit.Before;
 import org.junit.Rule;
@@ -21,6 +22,7 @@ public class MenuTests {
     private Library library;
     private BufferedReader reader;
     List<Book> books;
+    AuthenticationService auth;
 
     @Before
     public void setUp() {
@@ -30,18 +32,19 @@ public class MenuTests {
         Book book1 = new Book("Unquiet", "Linn Ullmann", "2018");
         Book book2 = new Book("The Value of Everything", "Mariana Mazzucato", "2018");
         books = Arrays.asList(book1, book2);
+        auth = mock(AuthenticationServiceImpl.class);
     }
 
     @Test
     public void testMenuHasOneOption() {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         assertEquals("List of books", menu.getOptions().get(0).getName());
     }
 
     @Test
     public void testSelectingBookOptionReturnsListOfBooks() {
         Library lib = new Library();
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         List<LibraryEntity> books = lib.getAvailableBooks();
         Book book = (Book) books.get(0);
         assertEquals("Unquiet", book.getTitle());
@@ -51,28 +54,28 @@ public class MenuTests {
 
     @Test
     public void testValidMenuOption() {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         boolean isValid = menu.isOptionSelectionValid(0);
         assertTrue(isValid);
     }
 
     @Test
     public void testInvalidMenuOption() {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         boolean isValid = menu.isOptionSelectionValid(100);
         assertFalse(isValid);
     }
 
     @Test
     public void shouldBeInvalidWhenOptionIsLessThan0() {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         boolean isValid = menu.isOptionSelectionValid(-1);
         assertFalse(isValid);
     }
 
     @Test
     public void testMenuHasQuittingOption() {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         MenuOption quitOption = MenuOption.QUIT;
         assertEquals(quitOption.getName(), menu.getOptions().get(quitOption.getCode()).getName());
     }
@@ -83,7 +86,7 @@ public class MenuTests {
 
     @Test
     public void testQuittingTheApplication() {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         exit.expectSystemExit();
         menu.quitApplication();
     }
@@ -91,7 +94,7 @@ public class MenuTests {
     @Test
     public void shouldPrintAllBooksWhenPrintBooksOption0Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        Menu menu = new Menu(printStream, reader, mockedLibrary, auth);
         int optionNr = 0;
         menu.selectOperation(optionNr);
         verify(mockedLibrary).getAvailableBooks();
@@ -100,7 +103,7 @@ public class MenuTests {
     @Test
     public void shouldPrintAllMoviesWhenPrintMoviesOption4Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        Menu menu = new Menu(printStream, reader, mockedLibrary, auth);
         int optionNr = 4;
         menu.selectOperation(optionNr);
         verify(mockedLibrary).getAvailableMovies();
@@ -111,7 +114,7 @@ public class MenuTests {
         Movie movie1 = new Movie("Avengers: Endgame", "Anthony Russo, Joe Russo", "2019");
         movie1.setRating(9);
         Movie movie2 = new Movie("Parasite", "Bong Joon-ho", "2019");
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
 
         menu.presentAvailableMovies();
 
@@ -123,7 +126,7 @@ public class MenuTests {
     @Test
     public void shouldStartCheckOutProcessWhenOption1Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        Menu menu = new Menu(printStream, reader, mockedLibrary, auth);
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 1;
         menu.selectOperation(optionNr);
@@ -132,7 +135,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfSuccessWhenBookCheckedOutSuccessfully() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 1;
         menu.selectOperation(optionNr);
@@ -141,7 +144,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfFailureWhenBookNotCheckedOut() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         when(reader.readLine()).thenReturn("Book X");
         int optionNr = 1;
         menu.selectOperation(optionNr);
@@ -151,7 +154,7 @@ public class MenuTests {
     @Test
     public void shouldStartReturnProcessWhenOption2Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        Menu menu = new Menu(printStream, reader, mockedLibrary, auth);
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 2;
         menu.selectOperation(optionNr);
@@ -160,7 +163,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfSuccessWhenBookReturnedSuccessfully() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         library.checkOutBookByName("Unquiet");
         when(reader.readLine()).thenReturn("Unquiet");
         int optionNr = 2;
@@ -170,7 +173,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfFailureWhenBookNotReturned() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         library.checkOutBookByName("Unquiet");
         when(reader.readLine()).thenReturn("Unqu");
         int optionNr = 2;
@@ -181,7 +184,7 @@ public class MenuTests {
     @Test
     public void shouldStartMovieCheckOutProcessWhenOption5Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        Menu menu = new Menu(printStream, reader, mockedLibrary, auth);
         when(reader.readLine()).thenReturn("Parasite");
         int optionNr = 5;
         menu.selectOperation(optionNr);
@@ -190,7 +193,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfSuccessWhenMovieCheckedOutSuccessfully() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         when(reader.readLine()).thenReturn("Parasite");
         int optionNr = 5;
         menu.selectOperation(optionNr);
@@ -199,7 +202,7 @@ public class MenuTests {
 
     @Test
     public void shouldNotifyOfFailureWhenMovieNotCheckedOut() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+        Menu menu = new Menu(printStream, reader, library, auth);
         when(reader.readLine()).thenReturn("Movie X");
         int optionNr = 5;
         menu.selectOperation(optionNr);
@@ -209,7 +212,7 @@ public class MenuTests {
     @Test
     public void shouldStartReservationListProcessWhenOption6Selected() throws IOException {
         Library mockedLibrary = mock(Library.class);
-        Menu menu = new Menu(printStream, reader, mockedLibrary);
+        Menu menu = new Menu(printStream, reader, mockedLibrary, auth);
         int optionNr = 6;
         menu.selectOperation(optionNr);
         verify(mockedLibrary).getReservations();

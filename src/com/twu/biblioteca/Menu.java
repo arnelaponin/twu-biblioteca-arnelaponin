@@ -26,15 +26,11 @@ public class Menu {
             MenuOption.LIST_RESERVATION);
     AuthenticationService auth;
 
-    public Menu(PrintStream printstream, BufferedReader reader, Library library) {
+    public Menu(PrintStream printstream, BufferedReader reader, Library library, AuthenticationService auth) {
         this.printStream = printstream;
         this.reader = reader;
         this.library = library;
-        try {
-            auth = new AuthenticationServiceImpl();
-        } catch (IncorrectLibraryNumberFormat incorrectLibraryNumberFormat) {
-            incorrectLibraryNumberFormat.printStackTrace();
-        }
+        this.auth = auth;
     }
 
     public String printAllOptions() {
@@ -187,6 +183,10 @@ public class Menu {
                 printStream.println(e.getMessage());
             }
         } while (!userSet);
+        setLibraryUser();
+    }
+
+    protected void setLibraryUser() {
         library.setCurrentUser(auth.getCurrentUser());
     }
 

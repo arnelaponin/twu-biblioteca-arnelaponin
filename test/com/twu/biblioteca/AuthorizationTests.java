@@ -29,8 +29,9 @@ public class AuthorizationTests {
     }
 
     @Test
-    public void shouldAskUserForAuthentication() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+    public void shouldAskUserForAuthentication() throws IOException, IncorrectLibraryNumberFormat {
+        AuthenticationService auth = new AuthenticationServiceImpl();
+        Menu menu = new Menu(printStream, reader, library, auth);
         when(reader.readLine()).thenReturn("123-4567").thenReturn("test1234");
         try {
             menu.getUserLibraryNumberAndPassword();
@@ -77,8 +78,9 @@ public class AuthorizationTests {
     }
 
     @Test
-    public void shouldSetLibraryCurrentUserAfterAuthentication() throws IOException {
-        Menu menu = new Menu(printStream, reader, library);
+    public void shouldSetLibraryCurrentUserAfterAuthentication() throws IOException, IncorrectLibraryNumberFormat {
+        AuthenticationService auth = new AuthenticationServiceImpl();
+        Menu menu = new Menu(printStream, reader, library, auth);
         when(reader.readLine()).thenReturn("123-4567").thenReturn("test1234");
         try {
             menu.getUserLibraryNumberAndPassword();
