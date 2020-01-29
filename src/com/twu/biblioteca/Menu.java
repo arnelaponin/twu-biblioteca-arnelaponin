@@ -34,6 +34,26 @@ public class Menu {
         this.auth = auth;
     }
 
+    public void selectOperation(int optionNr) throws IOException {
+        if (optionNr == MenuOption.valueOf("LIST").getCode()) {
+            presentAvailableBooks();
+        } else if (optionNr == MenuOption.valueOf("CHECKOUT").getCode()) {
+            bookCheckOutProcess();
+        } else if (optionNr == MenuOption.valueOf("RETURN").getCode()) {
+            bookReturnProcess();
+        } else if (optionNr == MenuOption.valueOf("QUIT").getCode()) { //This option is not tested.
+            quitApplication();
+        } else if (optionNr == MenuOption.valueOf("LIST_MOVIES").getCode()) {
+            presentAvailableMovies();
+        } else if (optionNr == MenuOption.valueOf("CHECKOUT_MOVIE").getCode()) {
+            movieCheckOutProcess();
+        } else if (optionNr == MenuOption.valueOf("LIST_RESERVATION").getCode()) {
+            presentReservations();
+        } else if (optionNr == MenuOption.valueOf("INFORMATION").getCode()) {
+            printStream.println(auth.getCurrentUser());
+        }
+    }
+
     public String printAllOptions() {
         StringBuilder stringBuilder = new StringBuilder("");
         for (MenuOption option : options) {
@@ -64,26 +84,6 @@ public class Menu {
 
         }
         return isValidResponse;
-    }
-
-    public void selectOperation(int optionNr) throws IOException {
-        if (optionNr == MenuOption.valueOf("LIST").getCode()) {
-            presentAvailableBooks();
-        } else if (optionNr == MenuOption.valueOf("CHECKOUT").getCode()) {
-            bookCheckOutProcess();
-        } else if (optionNr == MenuOption.valueOf("RETURN").getCode()) {
-            bookReturnProcess();
-        } else if (optionNr == MenuOption.valueOf("QUIT").getCode()) { //This option is not tested.
-            quitApplication();
-        } else if (optionNr == MenuOption.valueOf("LIST_MOVIES").getCode()) {
-            presentAvailableMovies();
-        } else if (optionNr == MenuOption.valueOf("CHECKOUT_MOVIE").getCode()) {
-            movieCheckOutProcess();
-        } else if (optionNr == MenuOption.valueOf("LIST_RESERVATION").getCode()) {
-            presentReservations();
-        } else if (optionNr == MenuOption.valueOf("INFORMATION").getCode()) {
-            printStream.println(auth.getCurrentUser());
-        }
     }
 
     private void presentReservations() {
